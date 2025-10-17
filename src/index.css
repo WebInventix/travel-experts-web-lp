@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+html, body {
+  overflow-x: hidden;
+}
+
+.font-messiri {
+  font-family: 'El Messiri', sans-serif;
+}
+
+.font-karla {
+  font-family: 'Karla', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}

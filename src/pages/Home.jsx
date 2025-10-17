@@ -1,0 +1,28 @@
+import React from "react";
+import Banner from "../components/Banner";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import WhyUse from "../components/WhyUse";
+import ExperienceSection from "../components/ExperienceSection";
+import HeroSection from "../components/hero/HeroSection";
+import Destinations from "../components/Destinations";
+import AdventureSection from "../components/AdventureSection";
+import DiscoverSection from "../components/DiscoverSection";
+
+const Home = () => {
+  return (
+    <div>
+      <Header />
+      <Banner />
+      <Destinations />
+      <AdventureSection />
+      <HeroSection />
+      <DiscoverSection />
+      <WhyUse />
+      <ExperienceSection />
+      <Footer />
+    </div>
+  );
+};
+
+export default Home;
