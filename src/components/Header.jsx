@@ -18,7 +18,7 @@ const Header = () => {
       <header className="fixed top-0 left-0 right-0 w-full z-20">
         {/* Top bar */}
         <div className="bg-[#002B7F] text-white py-2 text-sm">
-          <div className="flex justify-between items-center max-w-[1280px] mx-auto px-4 sm:px-6 font-roboto font-bold text-xl">
+          <div className="flex justify-between items-center container mx-auto px-4 sm:px-6 font-roboto font-bold text-xl">
             <div className="flex items-center gap-2">
               <MdEmail />
               <span>info@amoltravel.com</span>
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
 
         {/* Navbar */}
-        <nav className="bg-transparent py-4 flex items-center justify-between max-w-[1280px] mx-auto px-4 sm:px-6 gap-10">
+        <nav className="bg-transparent py-4 flex items-center justify-between container mx-auto px-4 sm:px-6 gap-10">
           <div className="font-roboto">
             <h2 className="text-white text-xl font-medium tracking-wide text-[32px] leading-tight">
               TRAVEL EXPERTS <br />

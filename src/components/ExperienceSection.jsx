@@ -21,8 +21,8 @@ const ExperienceSection = () => {
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-5 lg:gap-10 mb-12">
           <div>
-            <h2 className="text-[24px] md:text-[30px] lg:text-[42px] xl:text-[52px] font-semibold font-messiri leading-tight">
-              Enjoy Our Best Quality <br /> Tour & Experience
+            <h2 className="text-[28px] md:text-[34px] lg:text-[42px] xl:text-[52px] font-semibold font-messiri leading-tight">
+              Enjoy Our Best Quality Tour & Experience
             </h2>
           </div>
           <div>
