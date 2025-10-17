@@ -26,8 +26,10 @@ const TestimonialsCarousel = ({ testimonials }) => {
           {testimonials.map((t, i) => (
             <SwiperSlide key={i}>
               <div className="bg-[#1A1A1A] text-gray-300 p-6 rounded-2xl flex flex-col justify-between hover:bg-[#232323] transition duration-300 h-full">
-                <p className="text-sm leading-relaxed mb-6">{t.text}</p>
-                <div className="flex items-center gap-3">
+                <p className="text-sm leading-relaxed mb-6 line-clamp-4  overflow-hidden">
+                  {t.text}
+                </p>
+                <div className="flex items-center gap-3 mt-auto">
                   <img
                     src={t.image}
                     alt={t.name}

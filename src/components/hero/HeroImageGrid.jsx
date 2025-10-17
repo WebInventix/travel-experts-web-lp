@@ -6,7 +6,7 @@ import TigerImg from "../../assets/tiger-image.png";
 
 const HeroImageGrid = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start justify-center container mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 container mx-auto">
       {/* Left Large Image */}
       <div className="col-span-2">
         <img
@@ -17,19 +17,18 @@ const HeroImageGrid = () => {
       </div>
 
       {/* Right Small Images */}
-      <div className="flex flex-col gap-6 relative">
+      <div className="space-y-8">
         <img
           src={TempleImg}
           alt="Temple"
-          className="rounded-2xl w-[280px] md:w-[320px] h-[180px] md:h-[220px] object-cover"
+          className="rounded-2xl w-full md:w-[320px] h-auto md:h-[220px] object-cover"
         />
         <img
           src={TigerImg}
           alt="Tiger"
-          className="rounded-2xl w-[280px] md:w-[220px] h-[200px] md:h-[360px] object-cover"
+          className="rounded-2xl w-full md:w-[220px] h-auto md:h-[360px] object-cover"
         />
-        {/* Floating Info Card */}
-        <div className="ml-8">
+        <div className="md:ml-8">
           <InfoCard />
         </div>
       </div>
