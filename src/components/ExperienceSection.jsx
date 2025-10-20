@@ -4,7 +4,7 @@ import VideoPlayerImg from "../assets/video-player.png";
 import FAQ from "./FAQ";
 
 const ExperienceSection = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [videoError, setVideoError] = useState(false);
 
   const faqs = [
     "What to prepare trip to Asia",
@@ -42,12 +42,31 @@ const ExperienceSection = () => {
           <FAQ faqs={faqs} />
         </div>
 
-        <div>
-          <img
-            src={VideoPlayerImg}
-            alt="video player image"
-            className="rounded-xl w-full"
-          />
+        <div
+          className="relative w-full rounded-xl overflow-hidden"
+          style={{ aspectRatio: "16 / 9" }}
+        >
+          {!videoError ? (
+            <iframe
+              src="https://www.youtube.com/embed/8GFuxiE3He4?autoplay=1&mute=1&loop=1&playlist=8GFuxiE3He4&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0"
+              title="Experience video"
+              allow="autoplay; encrypted-media"
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
+              style={{
+                border: "none",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: "scale(1.2)",
+              }}
+            ></iframe>
+          ) : (
+            <img
+              src={VideoPlayerImg}
+              alt="video player image"
+              className="w-full h-full object-cover rounded-xl"
+            />
+          )}
         </div>
       </div>
     </section>
