@@ -13,7 +13,7 @@ const DestinationCard = ({ image, title, location, size }) => {
           size === "large"
             ? "lg:row-span-2 lg:h-[600px] h-[300px]"
             : size === "wide"
-            ? "lg:col-span-2 lg:h-[340px] h-[300px]"
+            ? "lg:col-span-2 lg:h-[320px] h-[300px]"
             : "h-[260px]"
         }`}
       style={{
