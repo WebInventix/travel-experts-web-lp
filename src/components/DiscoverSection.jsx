@@ -17,7 +17,7 @@ const DiscoverSection = () => {
     { name: "India", image: IndiaImg },
     { name: "Dubai", image: DubaiImg },
     { name: "Africa", image: AfricaImg },
-    { name: "Tahiti", image: TahitiImg },
+    { name: "Thahiti", image: TahitiImg },
     { name: "Fiji", image: FijiImg },
   ];
   const testimonials = [
