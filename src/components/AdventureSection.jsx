@@ -52,17 +52,17 @@ const AdventureSection = () => {
           <FeatureItem
             icon={ShieldIcon}
             title="Safe Traveling"
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been."
+            description="Enjoy every journey with complete peace of mind, knowing your safety is our top priority."
           />
           <FeatureItem
             icon={CurrencyIcon}
             title="Affordable Price"
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been."
+            description="Experience quality travel and comfort without stretching your budget."
           />
           <FeatureItem
             icon={DoorIcon}
             title="Comfort Accommodation"
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been."
+            description="Relax and unwind in cozy, well-equipped stays designed for your comfort."
           />
         </div>
       </div>
