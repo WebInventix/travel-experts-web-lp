@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import BannerImage from "../assets/Banner.png";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { FaPlane } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import NavMenu from "./NavMenu";
+import SidebarMenu from "./SidebarMenu";
 
 const Banner = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const navLinks = [
     { name: "home", link: "#" },
     { name: "about us", link: "#" },
@@ -20,6 +23,19 @@ const Banner = () => {
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
+
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-black/40 z-[998] transition-opacity"
+        ></div>
+      )}
+
+      <SidebarMenu
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        links={navLinks}
+      />
 
       <nav className="z-10 py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
         <div className="font-roboto">
@@ -42,7 +58,10 @@ const Banner = () => {
         />
 
         <div>
-          <RxHamburgerMenu className="lg:hidden text-white text-4xl hover:cursor-pointer hover:opacity-70 transition" />
+          <RxHamburgerMenu
+            onClick={() => setSidebarOpen(true)}
+            className="lg:hidden text-white text-4xl hover:cursor-pointer hover:opacity-70 transition"
+          />
         </div>
       </nav>
 
