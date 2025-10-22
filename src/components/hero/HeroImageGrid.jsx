@@ -6,30 +6,44 @@ import TigerImg from "../../assets/tiger-image.png";
 
 const HeroImageGrid = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 container mx-auto">
-      {/* Left Large Image */}
-      <div className="col-span-2">
-        <img
-          src={FortImg}
-          alt="Large Destination"
-          className="rounded-2xl w-full h-[350px] md:h-[700px] object-cover"
-        />
-      </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        {/* Left Large Image - Fort/Palace */}
+        <div className="lg:col-span-1">
+          <img
+            src={FortImg}
+            alt="Historic Fort"
+            className="rounded-2xl w-full h-[400px] md:h-[500px] lg:h-[650px] object-cover shadow-lg"
+          />
+        </div>
 
-      {/* Right Small Images */}
-      <div className="space-y-8">
-        <img
-          src={TempleImg}
-          alt="Temple"
-          className="rounded-2xl w-full md:w-[320px] h-auto md:h-[220px] object-cover"
-        />
-        <img
-          src={TigerImg}
-          alt="Tiger"
-          className="rounded-2xl w-full md:w-[220px] h-auto md:h-[360px] object-cover"
-        />
-        <div className="md:ml-8">
-          <InfoCard />
+        {/* Right Column - Temple, Tiger, and Info Card */}
+        <div className="flex flex-col gap-4 md:gap-6">
+          {/* Temple Image */}
+          <div className="flex-shrink-0">
+            <img
+              src={TempleImg}
+              alt="Ancient Temple"
+              className="rounded-2xl w-full h-[250px] md:h-[210px] lg:h-[300px] object-cover shadow-lg"
+            />
+          </div>
+
+          {/* Tiger Image and Info Card - Side by Side */}
+          <div className="flex flex-row gap-4 md:gap-6">
+            {/* Tiger Image */}
+            <div className="flex-1">
+              <img
+                src={TigerImg}
+                alt="Bengal Tiger"
+                className="rounded-2xl w-full h-[250px] md:h-[220px] lg:h-[320px] object-cover shadow-lg"
+              />
+            </div>
+
+            {/* Info Card */}
+            <div className="flex-1">
+              <InfoCard />
+            </div>
+          </div>
         </div>
       </div>
     </div>

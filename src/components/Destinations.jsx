@@ -1,9 +1,9 @@
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import BeachImg from "../assets/keling-beach.jpg";
-import PalaceImg from "../assets/grand-palace.jpg";
-import TurkeyImg from "../assets/turkey.jpg";
-import PyramidsImg from "../assets/pyramids.jpg";
+import BeachImg from "../assets/pic1.jpeg";
+import PalaceImg from "../assets/pic2.webp";
+import TurkeyImg from "../assets/pic3.jpeg";
+import PyramidsImg from "../assets/pic4.jpg";
 
 const DestinationCard = ({ image, title, location, size }) => {
   return (
@@ -45,24 +45,24 @@ const Destinations = () => {
   const destinations = [
     {
       image: BeachImg,
-      title: "Kelingking Beach",
-      location: "Nusa Penida, Bali",
+      title: "Taj Mahal",
+      location: "Agra, India",
       size: "large",
     },
     {
       image: PalaceImg,
-      title: "Grand Palace",
-      location: "Bangkok, Thailand",
+      title: "India Gate",
+      location: "Delhi, India",
     },
     {
       image: TurkeyImg,
-      title: "Cappadocia",
-      location: "Turkey",
+      title: "Hawa Mahal",
+      location: "Jaipur, India",
     },
     {
       image: PyramidsImg,
-      title: "Pyramids of Giza",
-      location: "Giza, Egypt",
+      title: "Mysore Palace",
+      location: "Mysore, India",
       size: "wide",
     },
   ];

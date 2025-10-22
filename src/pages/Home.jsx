@@ -8,17 +8,21 @@ import HeroSection from "../components/hero/HeroSection";
 import Destinations from "../components/Destinations";
 import AdventureSection from "../components/AdventureSection";
 import DiscoverSection from "../components/DiscoverSection";
+import DiscoverDesignation from "../components/DiscoverDesignation";
+import DealsSlider from "../components/DealsSlider";
 
 const Home = () => {
   return (
     <div>
       <Header />
       <Banner />
+      <DealsSlider />
       <Destinations />
+      <DiscoverDesignation />
       <AdventureSection />
       <DiscoverSection />
       <HeroSection />
-      <WhyUse />
+      {/* <WhyUse /> */}
       <ExperienceSection />
       <Footer />
     </div>
