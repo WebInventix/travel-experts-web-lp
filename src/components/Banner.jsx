@@ -18,7 +18,7 @@ const Banner = () => {
 
   return (
     <section
-      className="bg-cover bg-center flex flex-col"
+      className="bg-cover bg-center flex flex-col px-6"
       style={{ backgroundImage: `url(${BannerImage})` }}
     >
       {/* Overlay */}
