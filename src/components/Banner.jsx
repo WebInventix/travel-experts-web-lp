@@ -7,6 +7,9 @@ import { FaPlane } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import NavMenu from "./NavMenu";
 import SidebarMenu from "./SidebarMenu";
+import AirportSelector from "./AirportSelector";
+import DatePicker from "./DatePicker";
+import PassengerSelector from "./PassengerSelector";
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -66,11 +69,14 @@ const Banner = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.from || formData.from.trim().length < 3) {
-      newErrors.from = 'Please enter a valid departure city (3 letter code)';
+    if (!formData.from || formData.from.trim().length === 0) {
+      newErrors.from = 'Please select a departure airport';
     }
-    if (!formData.to || formData.to.trim().length < 3) {
-      newErrors.to = 'Please enter a valid arrival city (3 letter code)';
+    if (!formData.to || formData.to.trim().length === 0) {
+      newErrors.to = 'Please select an arrival airport';
+    }
+    if (formData.from && formData.to && formData.from === formData.to) {
+      newErrors.to = 'Arrival airport must be different from departure';
     }
     if (!formData.departureDate) {
       newErrors.departureDate = 'Please select a departure date';
@@ -262,134 +268,58 @@ const Banner = () => {
 
         {/* Input Fields */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 my-8 font-roboto font-bold text-base">
-          <div className="flex flex-col gap-3">
-            <label htmlFor="from">From</label>
-            <input
-              id="from"
-              name="from"
-              type="text"
-              placeholder="e.g., DXB"
-              value={formData.from}
-              onChange={handleInputChange}
-              maxLength="3"
-              className={`p-2 border rounded-md bg-white focus:outline-none focus:border-[#002B7F] transition-colors duration-200 uppercase ${
-                errors.from ? 'border-red-500' : 'border-white'
-              }`}
-            />
-            {errors.from && <span className="text-red-500 text-xs font-normal">{errors.from}</span>}
-          </div>
+          <AirportSelector
+            name="from"
+            label="From"
+            value={formData.from}
+            onChange={handleInputChange}
+            placeholder="Select departure city"
+            error={errors.from}
+          />
 
-          <div className="flex flex-col gap-3">
-            <label htmlFor="to">To</label>
-            <input
-              id="to"
-              name="to"
-              type="text"
-              placeholder="e.g., BOM"
-              value={formData.to}
-              onChange={handleInputChange}
-              maxLength="3"
-              className={`p-2 border rounded-md bg-white focus:outline-none focus:border-[#002B7F] transition-colors duration-200 uppercase ${
-                errors.to ? 'border-red-500' : 'border-white'
-              }`}
-            />
-            {errors.to && <span className="text-red-500 text-xs font-normal">{errors.to}</span>}
-          </div>
+          <AirportSelector
+            name="to"
+            label="To"
+            value={formData.to}
+            onChange={handleInputChange}
+            placeholder="Select arrival city"
+            error={errors.to}
+          />
 
-          <div className="flex flex-col gap-3">
-            <label htmlFor="departureDate">Departure</label>
-            <input
-              id="departureDate"
-              name="departureDate"
-              type="date"
-              value={formData.departureDate}
-              onChange={handleInputChange}
-              min={new Date().toISOString().split('T')[0]}
-              className={`p-2 border rounded-md bg-white focus:outline-none focus:border-[#002B7F] transition-colors duration-200 ${
-                errors.departureDate ? 'border-red-500' : 'border-white'
-              }`}
-            />
-            {errors.departureDate && <span className="text-red-500 text-xs font-normal">{errors.departureDate}</span>}
-          </div>
+          <DatePicker
+            name="departureDate"
+            label="Departure"
+            value={formData.departureDate}
+            onChange={handleInputChange}
+            minDate={new Date().toISOString().split('T')[0]}
+            error={errors.departureDate}
+            placeholder="Select departure date"
+          />
 
-          <div className="flex flex-col gap-3">
-            <label htmlFor="returnDate">Return</label>
-            <input
-              id="returnDate"
-              name="returnDate"
-              type="date"
-              value={formData.returnDate}
-              onChange={handleInputChange}
-              disabled={formData.tripType === 'O'}
-              min={formData.departureDate || new Date().toISOString().split('T')[0]}
-              className={`p-2 border rounded-md bg-white focus:outline-none focus:border-[#002B7F] transition-colors duration-200 disabled:bg-gray-200 disabled:cursor-not-allowed ${
-                errors.returnDate ? 'border-red-500' : 'border-white'
-              }`}
-            />
-            {errors.returnDate && <span className="text-red-500 text-xs font-normal">{errors.returnDate}</span>}
-          </div>
+          <DatePicker
+            name="returnDate"
+            label="Return"
+            value={formData.returnDate}
+            onChange={handleInputChange}
+            minDate={formData.departureDate || new Date().toISOString().split('T')[0]}
+            disabled={formData.tripType === 'O'}
+            error={errors.returnDate}
+            placeholder="Select return date"
+          />
 
-          <div className="flex flex-col gap-3 uppercase">
-            <label htmlFor="cabin">Traveller & Class</label>
-            <select
-              id="cabin"
-              name="cabin"
-              value={formData.cabin}
-              onChange={handleInputChange}
-              className="p-2 border border-white rounded-md bg-white focus:outline-none focus:border-[#002B7F] transition-colors duration-200"
-            >
-              <option value="Y">Economy</option>
-              <option value="C">Business</option>
-              <option value="F">First Class</option>
-            </select>
-          </div>
+          <PassengerSelector
+            adults={formData.adults}
+            children={formData.children}
+            infants={formData.infants}
+            cabin={formData.cabin}
+            onAdultsChange={handleInputChange}
+            onChildrenChange={handleInputChange}
+            onInfantsChange={handleInputChange}
+            onCabinChange={handleInputChange}
+          />
         </div>
 
-        {/* Passenger Count */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 font-roboto">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="adults" className="font-bold">Adults (12+ years)</label>
-            <select
-              id="adults"
-              name="adults"
-              value={formData.adults}
-              onChange={handleInputChange}
-              className="p-2 border border-white rounded-md bg-white focus:outline-none focus:border-[#002B7F]"
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-                <option key={num} value={num}>{num}</option>
-              ))}
-            </select>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="children" className="font-bold">Children (2-11 years)</label>
-            <select
-              id="children"
-              name="children"
-              value={formData.children}
-              onChange={handleInputChange}
-              className="p-2 border border-white rounded-md bg-white focus:outline-none focus:border-[#002B7F]"
-            >
-              {[0, 1, 2, 3, 4, 5, 6].map(num => (
-                <option key={num} value={num}>{num}</option>
-              ))}
-            </select>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="infants" className="font-bold">Infants (0-2 years)</label>
-            <select
-              id="infants"
-              name="infants"
-              value={formData.infants}
-              onChange={handleInputChange}
-              className="p-2 border border-white rounded-md bg-white focus:outline-none focus:border-[#002B7F]"
-            >
-              {[0, 1, 2, 3, 4].map(num => (
-                <option key={num} value={num}>{num}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        {/* Remove old passenger count section as it's now integrated */}
 
         {/* Radio Buttons */}
         <div className="flex flex-col flex-wrap justify-center gap-2 my-6 text-base">

@@ -4,11 +4,16 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FlightCard from '../components/FlightCard';
 import { FaArrowLeft, FaFilter } from 'react-icons/fa';
+import { getAirportByCode, getFlagUrl } from '../utils/airports';
 
 const SearchResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { results, searchParams, isLoading, error } = location.state || {};
+
+  // Get airport details for display
+  const departureAirport = searchParams ? getAirportByCode(searchParams.Departure) : null;
+  const arrivalAirport = searchParams ? getAirportByCode(searchParams.Arrival) : null;
 
   if (!location.state) {
     return (
@@ -46,8 +51,26 @@ const SearchResults = () => {
             <div className="bg-white rounded-lg shadow-md p-4">
               <h2 className="text-lg font-semibold text-gray-800 mb-2">Search Details</h2>
               <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                <span><strong>From:</strong> {searchParams.Departure}</span>
-                <span><strong>To:</strong> {searchParams.Arrival}</span>
+                <div className="flex items-center gap-2">
+                  {departureAirport && (
+                    <img 
+                      src={getFlagUrl(departureAirport.countryCode, 24)} 
+                      alt={departureAirport.country}
+                      className="w-5 h-5 rounded object-cover"
+                    />
+                  )}
+                  <span><strong>From:</strong> {departureAirport?.city || searchParams.Departure} ({searchParams.Departure})</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {arrivalAirport && (
+                    <img 
+                      src={getFlagUrl(arrivalAirport.countryCode, 24)} 
+                      alt={arrivalAirport.country}
+                      className="w-5 h-5 rounded object-cover"
+                    />
+                  )}
+                  <span><strong>To:</strong> {arrivalAirport?.city || searchParams.Arrival} ({searchParams.Arrival})</span>
+                </div>
                 <span><strong>Departure:</strong> {new Date(searchParams.DepartureDate).toLocaleDateString()}</span>
                 {searchParams.TripType === 'R' && searchParams.ArrivalDate && (
                   <span><strong>Return:</strong> {new Date(searchParams.ArrivalDate).toLocaleDateString()}</span>
