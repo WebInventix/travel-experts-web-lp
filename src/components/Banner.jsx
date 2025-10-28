@@ -35,81 +35,170 @@ const Banner = () => {
 
   const navLinks = [
     { name: "home", link: "#" },
-    { name: "about us", link: "#" },
+    {
+      name: "about us",
+      link: "https://stagging-server786.com/demo-client/amoltravel/about-us/",
+    },
     {
       name: "destination",
-      link: "#",
+      link: "https://stagging-server786.com/demo-client/amoltravel/destination/",
       sublinks: [
         {
           name: "Africa",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/africa/",
           sublinks: [
-            { name: "benin", link: "#" },
-            { name: "ghana", link: "#" },
-            { name: "lesotho", link: "#" },
-            { name: "morocco", link: "#" },
-            { name: "togo", link: "#" },
+            {
+              name: "benin",
+              link: "https://stagging-server786.com/demo-client/amoltravel/benin/",
+            },
+            {
+              name: "ghana",
+              link: "https://stagging-server786.com/demo-client/amoltravel/ghana/",
+            },
+            {
+              name: "lesotho",
+              link: "https://stagging-server786.com/demo-client/amoltravel/lesotho/",
+            },
+            {
+              name: "morocco",
+              link: "https://stagging-server786.com/demo-client/amoltravel/morocco/",
+            },
+            {
+              name: "togo",
+              link: "https://stagging-server786.com/demo-client/amoltravel/togo/",
+            },
           ],
         },
         {
           name: "Americas",
-          link: "#",
-          sublinks: [{ name: "guatimala", link: "#" }],
+          link: "https://stagging-server786.com/demo-client/amoltravel/americas/",
+          sublinks: [
+            {
+              name: "guatimala",
+              link: "https://stagging-server786.com/demo-client/amoltravel/guatemala/",
+            },
+          ],
         },
         {
           name: "South Asia",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/south-asia/",
           sublinks: [
-            { name: "afghanistan", link: "#" },
-            { name: "bangladesh", link: "#" },
-            { name: "india", link: "#" },
-            { name: "nepal", link: "#" },
-            { name: "pakistan", link: "#" },
-            { name: "sri lanka", link: "#" },
+            {
+              name: "afghanistan",
+              link: "https://stagging-server786.com/demo-client/amoltravel/afghanistan/",
+            },
+            {
+              name: "bangladesh",
+              link: "https://stagging-server786.com/demo-client/amoltravel/bangladesh/",
+            },
+            {
+              name: "india",
+              link: "https://stagging-server786.com/demo-client/amoltravel/india/",
+            },
+            {
+              name: "nepal",
+              link: "https://stagging-server786.com/demo-client/amoltravel/nepal/",
+            },
+            {
+              name: "pakistan",
+              link: "https://stagging-server786.com/demo-client/amoltravel/pakistan/",
+            },
+            {
+              name: "sri lanka",
+              link: "https://stagging-server786.com/demo-client/amoltravel/srilanka/",
+            },
           ],
         },
         {
           name: "South East Asia",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/south-east-asia/",
           sublinks: [
-            { name: "cambodia", link: "#" },
-            { name: "indonesia", link: "#" },
-            { name: "myanmar", link: "#" },
-            { name: "vietnam", link: "#" },
+            {
+              name: "cambodia",
+              link: "https://stagging-server786.com/demo-client/amoltravel/cambodia/",
+            },
+            {
+              name: "indonesia",
+              link: "https://stagging-server786.com/demo-client/amoltravel/indonesia/",
+            },
+            {
+              name: "myanmar",
+              link: "https://stagging-server786.com/demo-client/amoltravel/myanmar/",
+            },
+            {
+              name: "vietnam",
+              link: "https://stagging-server786.com/demo-client/amoltravel/vietnam/",
+            },
           ],
         },
         {
           name: "Europe",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/europe/",
           sublinks: [
-            { name: "albania", link: "#" },
-            { name: "belgium", link: "#" },
-            { name: "france", link: "#" },
-            { name: "czech republic", link: "#" },
-            { name: "netherlands", link: "#" },
-            { name: "poland", link: "#" },
+            {
+              name: "albania",
+              link: "https://stagging-server786.com/demo-client/amoltravel/albania/",
+            },
+            {
+              name: "belgium",
+              link: "https://stagging-server786.com/demo-client/amoltravel/belgium/",
+            },
+            {
+              name: "france",
+              link: "https://stagging-server786.com/demo-client/amoltravel/france/",
+            },
+            {
+              name: "czech republic",
+              link: "https://stagging-server786.com/demo-client/amoltravel/czech-republic/",
+            },
+            {
+              name: "netherlands",
+              link: "https://stagging-server786.com/demo-client/amoltravel/netherlands/",
+            },
+            {
+              name: "poland",
+              link: "https://stagging-server786.com/demo-client/amoltravel/poland/",
+            },
           ],
         },
         {
           name: "Middle East",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/middle-east/",
           sublinks: [
-            { name: "iraq", link: "#" },
-            { name: "qatar", link: "#" },
-            { name: "uae", link: "#" },
+            {
+              name: "iraq",
+              link: "https://stagging-server786.com/demo-client/amoltravel/iraq/",
+            },
+            {
+              name: "qatar",
+              link: "https://stagging-server786.com/demo-client/amoltravel/qatar/",
+            },
+            {
+              name: "uae",
+              link: "https://stagging-server786.com/demo-client/amoltravel/uae/",
+            },
           ],
         },
         {
           name: "Oceania",
-          link: "#",
+          link: "https://stagging-server786.com/demo-client/amoltravel/oceania/",
           sublinks: [
-            { name: "fiji", link: "#" },
-            { name: "tahiji", link: "#" },
+            {
+              name: "fiji",
+              link: "https://stagging-server786.com/demo-client/amoltravel/fiji/",
+            },
+            {
+              name: "tahiji",
+              link: "https://stagging-server786.com/demo-client/amoltravel/tahiti/",
+            },
           ],
         },
       ],
     },
-    { name: "contact us", link: "#" },
+    {
+      name: "contact us",
+      link: "https://stagging-server786.com/demo-client/amoltravel/contact-us/",
+    },
   ];
 
   // Handle input changes

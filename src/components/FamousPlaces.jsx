@@ -88,7 +88,7 @@ const FamousPlaces = () => {
           }}
         >
           {places.map((place, index) => (
-            <SwiperSlide key={index} className="my-10 ">
+            <SwiperSlide key={index} className="my-10 px-2">
               <div className="bg-white rounded-3xl shadow-2xl border border-gray-300 overflow-hidden hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-300 flex flex-col justify-between h-full ">
                 {/* Image */}
                 <div className="m-2 rounded-2xl">
