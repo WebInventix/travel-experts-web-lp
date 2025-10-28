@@ -10,6 +10,7 @@ import SidebarMenu from "./SidebarMenu";
 import AirportSelector from "./AirportSelector";
 import DatePicker from "./DatePicker";
 import PassengerSelector from "./PassengerSelector";
+import StampImg from "../assets/Stamp.png";
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -18,16 +19,16 @@ const Banner = () => {
 
   // Form state
   const [formData, setFormData] = useState({
-    from: '',
-    to: '',
-    departureDate: '',
-    returnDate: '',
-    tripType: 'O', // O = One Way, R = Round Trip
+    from: "",
+    to: "",
+    departureDate: "",
+    returnDate: "",
+    tripType: "O", // O = One Way, R = Round Trip
     adults: 1,
     children: 0,
     infants: 0,
-    cabin: 'Y', // Y = Economy, C = Business, F = First
-    fareType: 'Regular',
+    cabin: "Y", // Y = Economy, C = Business, F = First
+    fareType: "Regular",
   });
 
   const [errors, setErrors] = useState({});
@@ -35,33 +36,56 @@ const Banner = () => {
   const navLinks = [
     { name: "home", link: "#" },
     { name: "about us", link: "#" },
-    { name: "destination", link: "#" },
+    {
+      name: "destination",
+      link: "#",
+      sublinks: [
+        {
+          name: "Africa",
+          link: "#",
+          sublinks: [
+            { name: "France", link: "#" },
+            { name: "Germany", link: "#" },
+          ],
+        },
+        {
+          name: "Americas",
+          link: "#",
+          sublinks: [{ name: "guatimala", link: "#" }],
+        },
+        { name: "South Asia", link: "#" },
+        { name: "South East Asia", link: "#" },
+        { name: "Europe", link: "#" },
+        { name: "Middle East", link: "#" },
+        { name: "Oceania", link: "#" },
+      ],
+    },
     { name: "contact us", link: "#" },
   ];
 
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error for this field
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: ''
+        [name]: "",
       }));
     }
   };
 
   // Handle trip type change
   const handleTripTypeChange = (type) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       tripType: type,
       // Clear return date if switching to one way
-      returnDate: type === 'O' ? '' : prev.returnDate
+      returnDate: type === "O" ? "" : prev.returnDate,
     }));
   };
 
@@ -70,34 +94,34 @@ const Banner = () => {
     const newErrors = {};
 
     if (!formData.from || formData.from.trim().length === 0) {
-      newErrors.from = 'Please select a departure airport';
+      newErrors.from = "Please select a departure airport";
     }
     if (!formData.to || formData.to.trim().length === 0) {
-      newErrors.to = 'Please select an arrival airport';
+      newErrors.to = "Please select an arrival airport";
     }
     if (formData.from && formData.to && formData.from === formData.to) {
-      newErrors.to = 'Arrival airport must be different from departure';
+      newErrors.to = "Arrival airport must be different from departure";
     }
     if (!formData.departureDate) {
-      newErrors.departureDate = 'Please select a departure date';
+      newErrors.departureDate = "Please select a departure date";
     }
-    if (formData.tripType === 'R' && !formData.returnDate) {
-      newErrors.returnDate = 'Please select a return date';
+    if (formData.tripType === "R" && !formData.returnDate) {
+      newErrors.returnDate = "Please select a return date";
     }
-    
+
     // Check if departure date is in the future
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const depDate = new Date(formData.departureDate);
     if (depDate < today) {
-      newErrors.departureDate = 'Departure date must be today or in the future';
+      newErrors.departureDate = "Departure date must be today or in the future";
     }
 
     // Check if return date is after departure date
-    if (formData.tripType === 'R' && formData.returnDate) {
+    if (formData.tripType === "R" && formData.returnDate) {
       const retDate = new Date(formData.returnDate);
       if (retDate < depDate) {
-        newErrors.returnDate = 'Return date must be after departure date';
+        newErrors.returnDate = "Return date must be after departure date";
       }
     }
 
@@ -116,48 +140,49 @@ const Banner = () => {
       Departure: formData.from.toUpperCase(),
       Arrival: formData.to.toUpperCase(),
       DepartureDate: new Date(formData.departureDate).toISOString(),
-      ArrivalDate: formData.tripType === 'R' && formData.returnDate 
-        ? new Date(formData.returnDate).toISOString() 
-        : "0001-01-01T00:00:00",
+      ArrivalDate:
+        formData.tripType === "R" && formData.returnDate
+          ? new Date(formData.returnDate).toISOString()
+          : "0001-01-01T00:00:00",
       Cabin: formData.cabin,
       TripType: formData.tripType,
       PreferredAirline: null,
       PaxType: {
         Adult: parseInt(formData.adults),
         Child: parseInt(formData.children),
-        Infant: parseInt(formData.infants)
+        Infant: parseInt(formData.infants),
       },
       Stop: {
         OneStop: false,
         TwoStop: false,
-        NonStop: false
+        NonStop: false,
       },
       CustID: "CUST01010101",
-      MultiCitySearches: null
+      MultiCitySearches: null,
     };
 
     try {
       const response = await searchFlights(payload).unwrap();
-      
+
       // Navigate to results page with data
-      navigate('/search-results', {
+      navigate("/search-results", {
         state: {
           results: response,
           searchParams: payload,
           isLoading: false,
-          error: null
-        }
+          error: null,
+        },
       });
     } catch (error) {
-      console.error('Search failed:', error);
+      console.error("Search failed:", error);
       // Navigate to results page with error
-      navigate('/search-results', {
+      navigate("/search-results", {
         state: {
           results: [],
           searchParams: payload,
           isLoading: false,
-          error: error
-        }
+          error: error,
+        },
       });
     }
   };
@@ -227,6 +252,10 @@ const Banner = () => {
           </h1>
         </div>
 
+        <div>
+          <img src={StampImg} alt="stamp image" className="w-100" />
+        </div>
+
         <div className="flex flex-col gap-4">
           {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
             <a
@@ -249,20 +278,22 @@ const Banner = () => {
         {/* Radio buttons */}
         <div className="flex flex-wrap items-center gap-6 mb-4 font-medium text-base">
           <label className="flex items-center gap-2 cursor-pointer">
-            <input 
-              type="radio" 
-              name="tripType" 
-              checked={formData.tripType === 'O'}
-              onChange={() => handleTripTypeChange('O')}
-            /> One Way
+            <input
+              type="radio"
+              name="tripType"
+              checked={formData.tripType === "O"}
+              onChange={() => handleTripTypeChange("O")}
+            />{" "}
+            One Way
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
-            <input 
-              type="radio" 
+            <input
+              type="radio"
               name="tripType"
-              checked={formData.tripType === 'R'}
-              onChange={() => handleTripTypeChange('R')}
-            /> Round Trip
+              checked={formData.tripType === "R"}
+              onChange={() => handleTripTypeChange("R")}
+            />{" "}
+            Round Trip
           </label>
         </div>
 
@@ -291,7 +322,7 @@ const Banner = () => {
             label="Departure"
             value={formData.departureDate}
             onChange={handleInputChange}
-            minDate={new Date().toISOString().split('T')[0]}
+            minDate={new Date().toISOString().split("T")[0]}
             error={errors.departureDate}
             placeholder="Select departure date"
           />
@@ -301,8 +332,10 @@ const Banner = () => {
             label="Return"
             value={formData.returnDate}
             onChange={handleInputChange}
-            minDate={formData.departureDate || new Date().toISOString().split('T')[0]}
-            disabled={formData.tripType === 'O'}
+            minDate={
+              formData.departureDate || new Date().toISOString().split("T")[0]
+            }
+            disabled={formData.tripType === "O"}
             error={errors.returnDate}
             placeholder="Select return date"
           />
@@ -326,46 +359,50 @@ const Banner = () => {
           <div className="font-bold">Select A Fare Type:</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-medium">
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 name="fareType"
                 value="Regular"
-                checked={formData.fareType === 'Regular'}
+                checked={formData.fareType === "Regular"}
                 onChange={handleInputChange}
-              /> Regular
+              />{" "}
+              Regular
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 name="fareType"
                 value="Student"
-                checked={formData.fareType === 'Student'}
+                checked={formData.fareType === "Student"}
                 onChange={handleInputChange}
-              /> Student
+              />{" "}
+              Student
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 name="fareType"
                 value="Senior Citizen"
-                checked={formData.fareType === 'Senior Citizen'}
+                checked={formData.fareType === "Senior Citizen"}
                 onChange={handleInputChange}
-              /> Senior Citizen
+              />{" "}
+              Senior Citizen
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 name="fareType"
                 value="Armed Forces"
-                checked={formData.fareType === 'Armed Forces'}
+                checked={formData.fareType === "Armed Forces"}
                 onChange={handleInputChange}
-              /> Armed Forces
+              />{" "}
+              Armed Forces
             </label>
           </div>
         </div>
 
         <div className="flex items-center justify-center text-xs md:text-base font-normal font-roboto">
-          <button 
+          <button
             onClick={handleSearch}
             disabled={isLoading}
             className="bg-[#002B7F] text-white px-[50px] md:px-[71px] py-[14px] md:py-[22px] rounded-[50px] hover:opacity-90 hover:cursor-pointer transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -377,7 +414,9 @@ const Banner = () => {
               </>
             ) : (
               <>
-                <span><FaPlane /></span>
+                <span>
+                  <FaPlane />
+                </span>
                 <span>Search Now</span>
               </>
             )}
