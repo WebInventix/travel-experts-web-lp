@@ -44,8 +44,11 @@ const Banner = () => {
           name: "Africa",
           link: "#",
           sublinks: [
-            { name: "France", link: "#" },
-            { name: "Germany", link: "#" },
+            { name: "benin", link: "#" },
+            { name: "ghana", link: "#" },
+            { name: "lesotho", link: "#" },
+            { name: "morocco", link: "#" },
+            { name: "togo", link: "#" },
           ],
         },
         {
@@ -53,11 +56,57 @@ const Banner = () => {
           link: "#",
           sublinks: [{ name: "guatimala", link: "#" }],
         },
-        { name: "South Asia", link: "#" },
-        { name: "South East Asia", link: "#" },
-        { name: "Europe", link: "#" },
-        { name: "Middle East", link: "#" },
-        { name: "Oceania", link: "#" },
+        {
+          name: "South Asia",
+          link: "#",
+          sublinks: [
+            { name: "afghanistan", link: "#" },
+            { name: "bangladesh", link: "#" },
+            { name: "india", link: "#" },
+            { name: "nepal", link: "#" },
+            { name: "pakistan", link: "#" },
+            { name: "sri lanka", link: "#" },
+          ],
+        },
+        {
+          name: "South East Asia",
+          link: "#",
+          sublinks: [
+            { name: "cambodia", link: "#" },
+            { name: "indonesia", link: "#" },
+            { name: "myanmar", link: "#" },
+            { name: "vietnam", link: "#" },
+          ],
+        },
+        {
+          name: "Europe",
+          link: "#",
+          sublinks: [
+            { name: "albania", link: "#" },
+            { name: "belgium", link: "#" },
+            { name: "france", link: "#" },
+            { name: "czech republic", link: "#" },
+            { name: "netherlands", link: "#" },
+            { name: "poland", link: "#" },
+          ],
+        },
+        {
+          name: "Middle East",
+          link: "#",
+          sublinks: [
+            { name: "iraq", link: "#" },
+            { name: "qatar", link: "#" },
+            { name: "uae", link: "#" },
+          ],
+        },
+        {
+          name: "Oceania",
+          link: "#",
+          sublinks: [
+            { name: "fiji", link: "#" },
+            { name: "tahiji", link: "#" },
+          ],
+        },
       ],
     },
     { name: "contact us", link: "#" },
@@ -193,7 +242,7 @@ const Banner = () => {
       style={{ backgroundImage: `url(${BannerImage})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/40 z[1]"></div>
 
       {sidebarOpen && (
         <div
@@ -208,7 +257,7 @@ const Banner = () => {
         links={navLinks}
       />
 
-      <nav className="z-10 py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
+      <nav className="z-[1000] py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
         <div className="font-roboto">
           <h2 className="text-white font-medium tracking-wide text-xl md:text-[32px] leading-tight">
             TRAVEL EXPERTS <br />
@@ -224,7 +273,7 @@ const Banner = () => {
             "hidden lg:flex items-center gap-6 text-white border border-white rounded-full text-sm px-5 py-2 font-karla font-medium"
           }
           linkClassName={
-            "uppercase px-5 py-2 hover:bg-white/20 rounded-full transition"
+            "uppercase px-5 py-2 hover:bg-white hover:text-black rounded-full transition"
           }
         />
 

@@ -78,11 +78,11 @@ const DiscoverSection = () => {
 
         {/* Right Side Description */}
         <div className="space-y-6">
-          <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
+          {/* <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes.
-          </p>
+          </p> */}
           <button className="bg-white text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
             LEARN MORE
           </button>

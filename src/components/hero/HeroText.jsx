@@ -10,19 +10,19 @@ const HeroText = () => {
       </div>
 
       <div className="lg:w-1/2 flex flex-col space-y-5">
-        <p className="text-[#333333] md:text-sm xl:text-base font-karla leading-relaxed">
+        {/* <p className="text-[#333333] md:text-sm xl:text-base font-karla leading-relaxed">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes.
-        </p>
+        </p> */}
 
-        <div className="flex gap-4 md:text-[10px] xl:text-sm font-karla">
-          <button className="bg-[#0E0700] text-white px-6 py-2 rounded-full  hover:opacity-80 transition">
+        <div className="flex justify-end gap-4 md:text-[10px] xl:text-sm font-karla">
+          <button className="bg-[#0E0700] text-white px-6 py-3 rounded-full  hover:opacity-80 transition underline cursor-pointer">
             ABOUT US
           </button>
-          <button className="border border-[#0E0700] text-[#0E0700] px-6 py-2 rounded-full hover:opacity-80 transition">
+          {/* <button className="border border-[#0E0700] text-[#0E0700] px-6 py-2 rounded-full hover:opacity-80 transition">
             EXPLORE TRIP
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

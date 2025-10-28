@@ -25,13 +25,13 @@ const ExperienceSection = () => {
               Enjoy Our Best Quality Tour & Experience
             </h2>
           </div>
-          <div>
-            <p className="text-xs md:text-base font-normal text-white/70 font-karla leading-relaxed mb-6">
+          <div className="flex justify-end items-end">
+            {/* <p className="text-xs md:text-base font-normal text-white/70 font-karla leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus.
-            </p>
-            <button className="bg-white text-black font-karla text-sm font-medium px-6 py-2 rounded-full hover:opacity-80 hover:cursor-pointer transition">
+            </p> */}
+            <button className="bg-white text-black font-karla text-sm font-medium px-6 py-3 rounded-full hover:opacity-80 hover:cursor-pointer transition underline">
               LEARN MORE
             </button>
           </div>
