@@ -10,6 +10,7 @@ import AdventureSection from "../components/AdventureSection";
 import DiscoverSection from "../components/DiscoverSection";
 import DiscoverDesignation from "../components/DiscoverDesignation";
 import DealsSlider from "../components/DealsSlider";
+import FamousPlaces from "../components/FamousPlaces";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <DealsSlider />
       <Destinations />
       <DiscoverDesignation />
+      <FamousPlaces />
       <AdventureSection />
       <DiscoverSection />
       <HeroSection />
