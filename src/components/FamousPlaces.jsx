@@ -9,6 +9,7 @@ import HimachalImg from "../assets/Himachal.jpg";
 import GujaratImg from "../assets/Gujarat.jpg";
 import MaharashtraImg from "../assets/Maharashtra.webp";
 import GoaImg from "../assets/Goa.jpg";
+import { Link } from "react-router-dom";
 
 const FamousPlaces = () => {
   const places = [
@@ -121,9 +122,9 @@ const FamousPlaces = () => {
 
       {/* View All Button */}
       <div className="mt-10">
-        <button className="bg-black text-white font-semibold rounded-full px-8 py-3 hover:bg-gray-800 transition underline">
+        <Link to={'https://stagging-server786.com/demo-client/amoltravel/destination/'} className="bg-black text-white font-semibold rounded-full px-8 py-3 hover:bg-gray-800 transition underline">
           VIEW ALL DESTINATION
-        </button>
+        </Link>
       </div>
     </section>
   );

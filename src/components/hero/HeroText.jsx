@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeroText = () => {
   return (
@@ -17,9 +18,9 @@ const HeroText = () => {
         </p> */}
 
         <div className="flex justify-end gap-4 md:text-[10px] xl:text-sm font-karla">
-          <button className="bg-[#0E0700] text-white px-6 py-3 rounded-full  hover:opacity-80 transition underline cursor-pointer">
+          <Link to={'https://stagging-server786.com/demo-client/amoltravel/about-us/'} className="bg-[#0E0700] text-white px-6 py-3 rounded-full  hover:opacity-80 transition underline cursor-pointer">
             ABOUT US
-          </button>
+          </Link>
           {/* <button className="border border-[#0E0700] text-[#0E0700] px-6 py-2 rounded-full hover:opacity-80 transition">
             EXPLORE TRIP
           </button> */}

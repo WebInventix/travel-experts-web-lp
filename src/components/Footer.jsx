@@ -8,19 +8,19 @@ const Footer = () => {
 
   const pagesLinks = [
     { name: "home", link: "#" },
-    { name: "about us", link: "#" },
-    { name: "services", link: "#" },
-    { name: "contact us", link: "#" },
+    { name: "about us", link: "https://stagging-server786.com/demo-client/amoltravel/about-us/" },
+    { name: "destination", link: "https://stagging-server786.com/demo-client/amoltravel/destination/" },
+    { name: "contact us", link: "https://stagging-server786.com/demo-client/amoltravel/contact-us/" },
   ];
 
   const destinationLinks = [
-    { name: "africa", link: "#" },
-    { name: "america", link: "#" },
-    { name: "south asia", link: "#" },
-    { name: "south east asia", link: "#" },
-    { name: "europe", link: "#" },
-    { name: "middle east", link: "#" },
-    { name: "oceania", link: "#" },
+    { name: "africa", link: "https://stagging-server786.com/demo-client/amoltravel/africa/" },
+    { name: "america", link: "https://stagging-server786.com/demo-client/amoltravel/americas/" },
+    { name: "south asia", link: "https://stagging-server786.com/demo-client/amoltravel/south-asia/" },
+    { name: "south east asia", link: "https://stagging-server786.com/demo-client/amoltravel/south-east-asia/" },
+    { name: "europe", link: "https://stagging-server786.com/demo-client/amoltravel/europe/" },
+    { name: "middle east", link: "https://stagging-server786.com/demo-client/amoltravel/middle-east/" },
+    { name: "oceania", link: "https://stagging-server786.com/demo-client/amoltravel/oceania/" },
   ];
 
   const importLinks = [
