@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Proxy Test - Standalone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #002B7F;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        button {
+            background: #002B7F;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        button:hover {
+            background: #003399;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,43,127,0.3);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+        .success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        .loading {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 10px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .info-box {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        .info-box h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+        .info-box code {
+            background: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 PHP Proxy Tester</h1>
+        <p class="subtitle">Test your staging server PHP proxy before integrating with React</p>
+        
+        <button id="testBtn" onclick="testProxy()">
+            Test PHP Proxy Connection
+        </button>
+        
+        <div id="result"></div>
+        
+        <div class="info-box">
+            <h3>📋 What This Tests:</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Connection to <code>proxy_api.php</code></li>
+                <li>Request formatting (form-urlencoded)</li>
+                <li>Header passing</li>
+                <li>Response parsing</li>
+                <li>CORS configuration</li>
+            </ul>
+        </div>
+        
+        <div class="info-box" style="margin-top: 15px; background: #fff3cd; border-color: #ffc107;">
+            <h3 style="color: #856404;">💡 Open Browser Console (F12)</h3>
+            <p style="color: #856404; margin-top: 5px;">
+                Detailed request/response logs will appear in the console for debugging.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const PHP_PROXY_URL = "https://stagging-server786.com/proxy_api.php";
+        const TARGET_API_BASE = "http://trvlnxtgateway.parikshan.net/api";
+        const API_KEY = "CUST01010101MqkRi0o1s5Qd0Fk6JGWoFxhMlbhjeGIeyhBTZBPLNkeQNOyd9acb";
+
+        async function testProxy() {
+            const resultDiv = document.getElementById('result');
+            const testBtn = document.getElementById('testBtn');
+            
+            // Show loading
+            testBtn.disabled = true;
+            testBtn.innerHTML = '<span class="spinner"></span> Testing...';
+            resultDiv.innerHTML = '<div class="result loading"><strong>⏳ Sending request...</strong><p>Please wait while we test your PHP proxy.</p></div>';
+            
+            console.log('🧪 Starting PHP Proxy Test...');
+            console.log('='.repeat(60));
+            
+            try {
+                // Prepare test payload
+                const payload = {
+                    Departure: "DXB",
+                    Arrival: "BOM",
+                    DepartureDate: new Date().toISOString(),
+                    ArrivalDate: "0001-01-01T00:00:00",
+                    Cabin: "Y",
+                    TripType: "O",
+                    PreferredAirline: null,
+                    PaxType: {
+                        Adult: 1,
+                        Child: 0,
+                        Infant: 0
+                    },
+                    Stop: {
+                        OneStop: false,
+                        TwoStop: false,
+                        NonStop: false
+                    },
+                    CustID: "CUST01010101",
+                    MultiCitySearches: null
+                };
+                
+                const targetUrl = `${TARGET_API_BASE}/Availability`;
+                
+                const headers = {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                    "apikey": API_KEY
+                };
+                
+                // Create form data
+                const formData = new URLSearchParams();
+                formData.append("url", targetUrl);
+                formData.append("payloads", JSON.stringify(payload));
+                formData.append("headers", JSON.stringify(headers));
+                
+                console.log('📤 Request Details:');
+                console.log('Proxy URL:', PHP_PROXY_URL);
+                console.log('Target URL:', targetUrl);
+                console.log('Payload:', payload);
+                console.log('Headers:', headers);
+                console.log('Form Data:', formData.toString());
+                console.log('-'.repeat(60));
+                
+                // Send request
+                const startTime = Date.now();
+                const response = await fetch(PHP_PROXY_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData.toString()
+                });
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+                
+                console.log('📥 Response Details:');
+                console.log('Status:', response.status, response.statusText);
+                console.log('Duration:', duration + 'ms');
+                console.log('Headers:', [...response.headers.entries()]);
+                
+                const text = await response.text();
+                console.log('Raw Response:', text);
+                console.log('-'.repeat(60));
+                
+                let data;
+                try {
+                    data = JSON.parse(text);
+                    console.log('✅ Parsed JSON:', data);
+                } catch (e) {
+                    console.error('❌ JSON Parse Error:', e);
+                    throw new Error(`Response is not valid JSON. Got: ${text.substring(0, 200)}...`);
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                // Success!
+                resultDiv.innerHTML = `
+                    <div class="result success">
+                        <strong>✅ Test Successful!</strong>
+                        <p style="margin-top: 10px;">Your PHP proxy is working correctly.</p>
+                        <p style="margin-top: 5px; font-size: 14px;">Response time: ${duration}ms</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+                
+                console.log('='.repeat(60));
+                console.log('✅ TEST PASSED - PHP Proxy is working correctly!');
+                console.log('='.repeat(60));
+                
+            } catch (error) {
+                console.error('❌ Test Failed:', error);
+                console.log('='.repeat(60));
+                
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ Test Failed</strong>
+                        <p style="margin-top: 10px;">${error.message}</p>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Common Issues:</strong><br>
+                            • PHP proxy not accessible<br>
+                            • CORS headers not set correctly<br>
+                            • PHP proxy returning HTML instead of JSON<br>
+                            • API endpoint or key incorrect<br>
+                            • IP not whitelisted
+                        </p>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Check browser console (F12) for detailed logs.</strong>
+                        </p>
+                    </div>
+                `;
+            } finally {
+                testBtn.disabled = false;
+                testBtn.innerHTML = 'Test PHP Proxy Connection';
+            }
+        }
+        
+        console.log('💡 PHP Proxy Test Page Loaded');
+        console.log('Click the button to start testing...');
+    </script>
+</body>
+</html>
