@@ -405,7 +405,7 @@ const Banner = () => {
           <img src={StampImg} alt="stamp image" className="w-100" />
         </div>
 
-        <div className="flex flex-col gap-4">
+        {/* <div className="flex flex-col gap-4">
           {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
             <a
               key={i}
@@ -415,7 +415,7 @@ const Banner = () => {
               <Icon className="text-white" />
             </a>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Booking Box */}
