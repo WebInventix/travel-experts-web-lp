@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FlightCard from '../components/FlightCard';
-import { FaArrowLeft, FaFilter } from 'react-icons/fa';
+import { FaArrowLeft, FaFilter, FaSortAmountDown } from 'react-icons/fa';
 import { getAirportByCode, getFlagUrl } from '../utils/airports';
 
 const SearchResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { results, searchParams, isLoading, error } = location.state || {};
+  
+  // State for filtering and sorting
+  const [sortBy, setSortBy] = useState('price'); // price, duration, departure
+  const [filterStops, setFilterStops] = useState('all'); // all, nonstop, onestop
 
   // Get airport details for display
   const departureAirport = searchParams ? getAirportByCode(searchParams.Departure) : null;
   const arrivalAirport = searchParams ? getAirportByCode(searchParams.Arrival) : null;
+
+  // Extract flights from the API response
+  const flights = results?.Journeys?.[0]?.Flights || [];
 
   if (!location.state) {
     return (
@@ -31,6 +38,32 @@ const SearchResults = () => {
       </div>
     );
   }
+
+  // Filter flights
+  const filteredFlights = flights.filter(flight => {
+    if (filterStops === 'all') return true;
+    const segmentCount = flight.Segments?.length || 0;
+    if (filterStops === 'nonstop') return segmentCount === 1;
+    if (filterStops === 'onestop') return segmentCount === 2;
+    return true;
+  });
+
+  // Sort flights
+  const sortedFlights = [...filteredFlights].sort((a, b) => {
+    if (sortBy === 'price') {
+      return (a.TotalFare || 0) - (b.TotalFare || 0);
+    } else if (sortBy === 'duration') {
+      const getDuration = (flight) => {
+        const time = flight.OriginDestination?.TotalTime || '00:00';
+        const [hours, minutes] = time.split(':').map(Number);
+        return hours * 60 + minutes;
+      };
+      return getDuration(a) - getDuration(b);
+    } else if (sortBy === 'departure') {
+      return new Date(a.OriginDestination?.DepartureDateTime) - new Date(b.OriginDestination?.DepartureDateTime);
+    }
+    return 0;
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -57,6 +90,7 @@ const SearchResults = () => {
                       src={getFlagUrl(departureAirport.countryCode, 24)} 
                       alt={departureAirport.country}
                       className="w-5 h-5 rounded object-cover"
+                      onError={(e) => e.target.style.display = 'none'}
                     />
                   )}
                   <span><strong>From:</strong> {departureAirport?.city || searchParams.Departure} ({searchParams.Departure})</span>
@@ -67,12 +101,13 @@ const SearchResults = () => {
                       src={getFlagUrl(arrivalAirport.countryCode, 24)} 
                       alt={arrivalAirport.country}
                       className="w-5 h-5 rounded object-cover"
+                      onError={(e) => e.target.style.display = 'none'}
                     />
                   )}
                   <span><strong>To:</strong> {arrivalAirport?.city || searchParams.Arrival} ({searchParams.Arrival})</span>
                 </div>
                 <span><strong>Departure:</strong> {new Date(searchParams.DepartureDate).toLocaleDateString()}</span>
-                {searchParams.TripType === 'R' && searchParams.ArrivalDate && (
+                {searchParams.TripType === 'R' && searchParams.ArrivalDate && searchParams.ArrivalDate !== '0001-01-01T00:00:00' && (
                   <span><strong>Return:</strong> {new Date(searchParams.ArrivalDate).toLocaleDateString()}</span>
                 )}
                 <span><strong>Passengers:</strong> {searchParams.PaxType.Adult} Adult(s), {searchParams.PaxType.Child} Child(ren), {searchParams.PaxType.Infant} Infant(s)</span>
@@ -107,20 +142,47 @@ const SearchResults = () => {
         {/* Results */}
         {results && !isLoading && !error && (
           <>
-            <div className="flex items-center justify-between mb-6">
+            {/* Filters and Sort Bar */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
               <h2 className="text-2xl font-bold text-gray-800">
-                Available Flights ({results.length || 0})
+                Available Flights ({sortedFlights.length})
               </h2>
-              <button className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-50 transition">
-                <FaFilter />
-                <span>Filters</span>
-              </button>
+              
+              <div className="flex flex-wrap gap-3">
+                {/* Sort Dropdown */}
+                <div className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-lg">
+                  <FaSortAmountDown className="text-gray-600" />
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-transparent outline-none cursor-pointer text-sm"
+                  >
+                    <option value="price">Price: Low to High</option>
+                    <option value="duration">Duration: Shortest</option>
+                    <option value="departure">Departure: Earliest</option>
+                  </select>
+                </div>
+
+                {/* Filter Dropdown */}
+                <div className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-lg">
+                  <FaFilter className="text-gray-600" />
+                  <select
+                    value={filterStops}
+                    onChange={(e) => setFilterStops(e.target.value)}
+                    className="bg-transparent outline-none cursor-pointer text-sm"
+                  >
+                    <option value="all">All Flights</option>
+                    <option value="nonstop">Non-stop Only</option>
+                    <option value="onestop">1 Stop</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
-            {results.length === 0 ? (
+            {sortedFlights.length === 0 ? (
               <div className="bg-white rounded-lg shadow-md p-12 text-center">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">No flights found</h3>
-                <p className="text-gray-600 mb-6">Try adjusting your search criteria</p>
+                <p className="text-gray-600 mb-6">Try adjusting your filters or search criteria</p>
                 <button
                   onClick={() => navigate('/')}
                   className="bg-[#002B7F] text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
@@ -130,8 +192,8 @@ const SearchResults = () => {
               </div>
             ) : (
               <div className="space-y-4">
-                {results.map((flight, index) => (
-                  <FlightCard key={index} flight={flight} />
+                {sortedFlights.map((flight, index) => (
+                  <FlightCard key={flight.FlightKey || index} flight={flight} />
                 ))}
               </div>
             )}
