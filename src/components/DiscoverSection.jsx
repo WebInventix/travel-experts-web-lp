@@ -72,7 +72,8 @@ const DiscoverSection = () => {
         {/* Left Side Text */}
         <div>
           <h2 className="text-3xl xl:text-5xl font-messiri font-semibold leading-tight">
-            Discover A Mesmerizing Nature Landscape & Stunning Culture
+            Discover A Mesmerizing <br /> Nature Landscape & <br /> Stunning
+            Culture
           </h2>
         </div>
 
@@ -83,7 +84,7 @@ const DiscoverSection = () => {
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes.
           </p> */}
-          <button className="bg-white text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
+          <button className="bg-white underline text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
             LEARN MORE
           </button>
         </div>

@@ -40,6 +40,11 @@ const AdventureSection = () => {
         <h2 className="text-4xl md:text-5xl font-messiri font-semibold text-[#0E0700] leading-tight">
           Experience The New Adventure
         </h2>
+
+        <h1 className="text-2xl font-semibold">
+          We are in business for more than 25+ years
+        </h1>
+
         <p className="text-gray-700 text-base font-karla leading-relaxed">
           Travel Experts’ success has been built upon the professionalism,
           expertise and integrity of our staff and the loyalty of our clients

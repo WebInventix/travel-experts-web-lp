@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -12,6 +12,11 @@ import GoaImg from "../assets/Goa.jpg";
 import { Link } from "react-router-dom";
 
 const FamousPlaces = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const places = [
     {
       name: "Delhi",
@@ -52,7 +57,7 @@ const FamousPlaces = () => {
   ];
 
   return (
-    <section className="py-16 px-6 text-center bg-white container mx-auto">
+    <section className="py-16 px-6 text-center bg-white container mx-auto max-w-7xl">
       {/* Heading */}
       <h2 className="text-6xl font-messiri font-semibold mb-4">
         Famous Places Of India
@@ -110,7 +115,10 @@ const FamousPlaces = () => {
                       {place.description}
                     </p>
                   </div>
-                  <button className="bg-black text-white text-sm font-semibold rounded-full py-2.5 hover:bg-gray-800 transition underline">
+                  <button
+                    onClick={handleOpenModal}
+                    className="bg-black text-white text-sm font-semibold rounded-full py-2.5 w-32 hover:bg-gray-800 transition underline mx-auto *:**:"
+                  >
                     BOOK NOW
                   </button>
                 </div>
@@ -122,10 +130,65 @@ const FamousPlaces = () => {
 
       {/* View All Button */}
       <div className="mt-10">
-        <Link to={'https://stagging-server786.com/demo-client/amoltravel/destination/'} className="bg-black text-white font-semibold rounded-full px-8 py-3 hover:bg-gray-800 transition underline">
-          VIEW ALL DESTINATION
+        <Link
+          to={
+            "https://stagging-server786.com/demo-client/amoltravel/destination/"
+          }
+          className="bg-black text-white font-semibold rounded-full px-8 py-3 hover:bg-gray-800 transition underline"
+        >
+          <a
+            href="https://stagging-server786.com/demo-client/amoltravel/india/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VIEW ALL DESTINATION
+          </a>{" "}
         </Link>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+          <div className="bg-[#1a120b] text-white p-8 rounded-2xl w-[90%] max-w-md relative">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-white text-xl hover:text-gray-400"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-2xl font-bold text-center mb-6">Book Now</h2>
+
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <input
+                type="tel"
+                placeholder="Phone"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <textarea
+                placeholder="Message"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none h-24"
+              ></textarea>
+
+              <button
+                type="submit"
+                className="bg-white text-black font-semibold rounded-full py-2 px-6 hover:bg-gray-200 transition block mx-auto"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -2,17 +2,49 @@ import React, { useState } from "react";
 
 import VideoPlayerImg from "../assets/video-player.png";
 import FAQ from "./FAQ";
+import FAQGroup from "./FAQGroup.jsx";
 
 const ExperienceSection = () => {
   const [videoError, setVideoError] = useState(false);
 
-  const faqs = [
-    "What to prepare trip to Asia",
-    "What document you need before go to Asia",
-    "How to scheduling Asia trip itinerary",
-    "8 Website must read before your trip",
-    "This is the best budget you need to prepare",
-    "This site give you the information about travel to Asia",
+  // const faqs = [
+  //   "What type of travel content can I find on this website?",
+  //   "Can I use your maps or images for my own projects?",
+  //   "Do you provide travel booking or tour packages?",
+  //   "How can I suggest a destination or share my travel experience?",
+  //   "How often is the travel information updated?",
+  //   "Is this website suitable for first-time travelers?",
+  // ];
+
+  const faqsColumn1 = [
+    {
+      question: "What type of travel content can I find on this website?",
+      answer: "You’ll find blogs, destinations, guides, and travel tips.",
+    },
+    {
+      question: "Can I use your maps or images for my own projects?",
+      answer: "You can, but make sure to credit the source.",
+    },
+    {
+      question: "Do you provide travel booking or tour packages?",
+      answer: "Yes, we offer multiple travel packages and group tours.",
+    },
+  ];
+
+  const faqsColumn2 = [
+    {
+      question:
+        "How can I suggest a destination or share my travel experience?",
+      answer: "You can submit through our contact form.",
+    },
+    {
+      question: "How often is the travel information updated?",
+      answer: "We update our content weekly.",
+    },
+    {
+      question: "Is this website suitable for first-time travelers?",
+      answer: "Absolutely, we have beginner-friendly guides.",
+    },
   ];
 
   return (
@@ -22,7 +54,7 @@ const ExperienceSection = () => {
         <div className="grid md:grid-cols-2 gap-5 lg:gap-10 mb-12">
           <div>
             <h2 className="text-[28px] md:text-[34px] lg:text-[42px] xl:text-[52px] font-semibold font-messiri leading-tight">
-              Enjoy Our Best Quality Tour & Experience
+              Enjoy Our Best Quality <br /> Tour & Experience
             </h2>
           </div>
           <div className="flex justify-end items-end">
@@ -38,8 +70,16 @@ const ExperienceSection = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="grid md:grid-cols-2 gap-8 mb-14">
+        {/* <div className="grid md:grid-cols-2 gap-8 mb-14"> */}
+        {/* <div className="grid md:grid-cols-2 gap-8 mb-14 items-start">
           <FAQ faqs={faqs} />
+        </div> */}
+
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mb-14 items-start">
+            <FAQGroup faqs={faqsColumn1} />
+            <FAQGroup faqs={faqsColumn2} />
+          </div>
         </div>
 
         <div

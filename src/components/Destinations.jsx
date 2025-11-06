@@ -4,8 +4,9 @@ import BeachImg from "../assets/pic1.jpeg";
 import PalaceImg from "../assets/pic2.webp";
 import TurkeyImg from "../assets/pic3.jpeg";
 import PyramidsImg from "../assets/pic4.jpg";
-
+import { useNavigate } from "react-router-dom";
 const DestinationCard = ({ image, title, location, size }) => {
+  let navigate = useNavigate();
   return (
     <div
       className={`group overflow-hidden rounded-2xl flex flex-col justify-end shadow-md transition-transform duration-500 hover:scale-[1.02]
@@ -32,7 +33,24 @@ const DestinationCard = ({ image, title, location, size }) => {
             <p className="text-gray-300 text-sm">{location}</p>
           </div>
 
-          <div className="flex items-center justify-center w-9 h-9 border border-white/60 rounded-full group-hover:bg-white group-hover:text-black transition-all duration-300 text-white">
+          {/* <div
+            onClick={navigate(
+              "https://stagging-server786.com/demo-client/amoltravel/india/"
+            )}
+            className="flex items-center justify-center w-9 h-9 border border-white/60 rounded-full group-hover:bg-white group-hover:text-black transition-all duration-300 text-white"
+          >
+            <GoArrowUpRight />
+          </div> */}
+
+          <div
+            onClick={() =>
+              (window.location.href =
+                "https://stagging-server786.com/demo-client/amoltravel/india/")
+            }
+            className="flex items-center justify-center w-9 h-9 border border-white/60 rounded-full 
+             group-hover:bg-white group-hover:text-black transition-all duration-300 text-white 
+             hover:cursor-pointer"
+          >
             <GoArrowUpRight />
           </div>
         </div>

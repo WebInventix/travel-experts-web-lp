@@ -16,6 +16,10 @@ const Banner = () => {
   const navigate = useNavigate();
   const [searchFlights, { isLoading }] = useSearchFlightsMutation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -347,6 +351,7 @@ const Banner = () => {
       />
 
       <nav className="z-[1000] py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
+        {/* Logo */}
         <div className="font-roboto">
           <h2 className="text-white font-medium tracking-wide text-xl md:text-[32px] leading-tight">
             TRAVEL EXPERTS <br />
@@ -356,6 +361,7 @@ const Banner = () => {
           </h2>
         </div>
 
+        {/* Navigation Menu */}
         <NavMenu
           links={navLinks}
           wrapperClassName={
@@ -366,10 +372,15 @@ const Banner = () => {
           }
         />
 
-        <div>
+        {/* Book Now Button + Mobile Menu Icon */}
+        <div className="flex items-center gap-3" onClick={handleOpenModal}>
+          <button className="bg-[#082A8C] hover:bg-[#0a3ac5] text-white font-semibold px-5 py-2 rounded-full transition text-sm sm:text-base">
+            BOOK NOW
+          </button>
+
           <RxHamburgerMenu
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden text-white text-4xl hover:cursor-pointer hover:opacity-70 transition"
+            className="lg:hidden text-white text-3xl hover:cursor-pointer hover:opacity-70 transition"
           />
         </div>
       </nav>
@@ -409,9 +420,9 @@ const Banner = () => {
 
       {/* Booking Box */}
       <div className="z-10 my-10 bg-white/60 rounded-2xl p-8 shadow-lg text-black container mx-auto">
-        <h3 className="text-[40px] font-semibold text-[#002B7F] mb-4 font-messiri">
+        {/* <h3 className="text-[40px] font-semibold text-[#002B7F] mb-4 font-messiri">
           Where to go?
-        </h3>
+        </h3> */}
 
         {/* Radio buttons */}
         <div className="flex flex-wrap items-center gap-6 mb-4 font-medium text-base">
@@ -561,6 +572,50 @@ const Banner = () => {
           </button>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+          <div className="bg-[#1a120b] text-white p-8 rounded-2xl w-[90%] max-w-md relative">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-white text-xl hover:text-gray-400"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-2xl font-bold text-center mb-6">Book Now</h2>
+
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <input
+                type="tel"
+                placeholder="Phone"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+              />
+              <textarea
+                placeholder="Message"
+                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none h-24"
+              ></textarea>
+
+              <button
+                type="submit"
+                className="bg-white text-black font-semibold rounded-full py-2 px-6 hover:bg-gray-200 transition block mx-auto"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

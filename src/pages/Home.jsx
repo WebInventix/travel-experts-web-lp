@@ -9,6 +9,7 @@ import Destinations from "../components/Destinations";
 import AdventureSection from "../components/AdventureSection";
 import DiscoverSection from "../components/DiscoverSection";
 import DiscoverDesignation from "../components/DiscoverDesignation";
+import DiscoverDesignation1 from "../components/DiscoverDesignation1";
 import DealsSlider from "../components/DealsSlider";
 import FamousPlaces from "../components/FamousPlaces";
 
@@ -21,6 +22,7 @@ const Home = () => {
       <Destinations />
       <DiscoverDesignation />
       <FamousPlaces />
+      <DiscoverDesignation1 />
       <AdventureSection />
       <DiscoverSection />
       <HeroSection />
