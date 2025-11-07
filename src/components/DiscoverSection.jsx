@@ -20,46 +20,92 @@ const DiscoverSection = () => {
     { name: "Thahiti", image: TahitiImg },
     { name: "Fiji", image: FijiImg },
   ];
+
+  // const testimonials = [
+  //   {
+  //     name: "Louna Daniel",
+  //     designation: "Designation",
+  //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+  //     image: LounaImg,
+  //   },
+  //   {
+  //     name: "Joe Marshall",
+  //     designation: "Designation",
+  //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
+  //     image: JoeImg,
+  //   },
+  //   {
+  //     name: "Luna Muller",
+  //     designation: "Designation",
+  //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+  //     image: LunaImg,
+  //   },
+  //   {
+  //     name: "Roy Franklin",
+  //     designation: "Designation",
+  //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
+  //     image: RoyImg,
+  //   },
+  //   {
+  //     name: "Joe Marshall",
+  //     designation: "Designation",
+  //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
+  //     image: JoeImg,
+  //   },
+  //   {
+  //     name: "Luna Muller",
+  //     designation: "Designation",
+  //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+  //     image: LunaImg,
+  //   },
+  //   {
+  //     name: "Roy Franklin",
+  //     designation: "Designation",
+  //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
+  //     image: RoyImg,
+  //   },
+  // ];
+
   const testimonials = [
     {
-      name: "Louna Daniel",
-      designation: "Designation",
+      name: "Aarav Mehta",
+      designation: "Marketing Manager",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LounaImg,
     },
     {
-      name: "Joe Marshall",
-      designation: "Designation",
+      name: "Priya Sharma",
+      designation: "Software Engineer",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: JoeImg,
     },
     {
-      name: "Luna Muller",
-      designation: "Designation",
+      name: "Rohan Patel",
+      designation: "Product Designer",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LunaImg,
     },
     {
-      name: "Roy Franklin",
-      designation: "Designation",
+      name: "Neha Verma",
+      designation: "Project Coordinator",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: RoyImg,
     },
     {
-      name: "Joe Marshall",
-      designation: "Designation",
+      name: "Vikram Iyer",
+      designation: "UI/UX Specialist",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: JoeImg,
     },
     {
-      name: "Luna Muller",
-      designation: "Designation",
+      name: "Ananya Singh",
+      designation: "Customer Success Manager",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LunaImg,
     },
     {
-      name: "Roy Franklin",
-      designation: "Designation",
+      name: "Raj Malhotra",
+      designation: "Business Analyst",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: RoyImg,
     },
@@ -67,28 +113,6 @@ const DiscoverSection = () => {
 
   return (
     <section className="bg-black text-white">
-      {/* Top Section */}
-      <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center">
-        {/* Left Side Text */}
-        <div>
-          <h2 className="text-3xl xl:text-5xl font-messiri font-semibold leading-tight">
-            Discover A Mesmerizing <br /> Nature Landscape & <br /> Stunning
-            Culture
-          </h2>
-        </div>
-
-        {/* Right Side Description */}
-        <div className="space-y-6">
-          {/* <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes.
-          </p> */}
-          <button className="bg-white underline text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
-            LEARN MORE
-          </button>
-        </div>
-      </div>
       <DestinationSelector destinations={destinations} />
       <TestimonialsCarousel testimonials={testimonials} />
     </section>
@@ -96,3 +120,29 @@ const DiscoverSection = () => {
 };
 
 export default DiscoverSection;
+
+{
+  /* Top Section */
+}
+
+// <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center">
+//         {/* Left Side Text */}
+//         <div>
+//           <h2 className="text-3xl xl:text-5xl font-messiri font-semibold leading-tight">
+//             Discover A Mesmerizing <br /> Nature Landscape & <br /> Stunning
+//             Culture
+//           </h2>
+//         </div>
+
+//         {/* Right Side Description */}
+//         <div className="space-y-6">
+//           {/* <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+//             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+//             penatibus et magnis dis parturient montes.
+//           </p> */}
+//           <button className="bg-white underline text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
+//             LEARN MORE
+//           </button>
+//         </div>
+//       </div>

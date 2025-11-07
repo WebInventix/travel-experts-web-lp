@@ -331,11 +331,11 @@ const Banner = () => {
 
   return (
     <section
-      className="bg-cover bg-center flex flex-col px-6"
+      className="bg-cover bg-center flex flex-col px-4 sm:px-6"
       style={{ backgroundImage: `url(${BannerImage})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z[1]"></div>
+      <div className="absolute inset-0 bg-black/40 z-[1]"></div>
 
       {sidebarOpen && (
         <div
@@ -352,10 +352,10 @@ const Banner = () => {
 
       <nav className="z-[1000] py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
         {/* Logo */}
-        <div className="font-roboto">
-          <h2 className="text-white font-medium tracking-wide text-xl md:text-[32px] leading-tight">
+        <div className="font-roboto text-center sm:text-left">
+          <h2 className="text-white font-medium tracking-wide text-lg sm:text-xl md:text-[32px] leading-tight">
             TRAVEL EXPERTS <br />
-            <span className="font-normal flex justify-end text-sm md:text-lg">
+            <span className="font-normal flex justify-end text-xs sm:text-sm md:text-lg">
               AND TOUR, INC.
             </span>
           </h2>
@@ -373,14 +373,17 @@ const Banner = () => {
         />
 
         {/* Book Now Button + Mobile Menu Icon */}
-        <div className="flex items-center gap-3" onClick={handleOpenModal}>
-          <button className="bg-[#082A8C] hover:bg-[#0a3ac5] text-white font-semibold px-5 py-2 rounded-full transition text-sm sm:text-base">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#082A8C] hover:bg-[#0a3ac5] text-white font-semibold px-4 py-1.5 sm:px-5 sm:py-2 rounded-full transition text-xs sm:text-base"
+          >
             BOOK NOW
           </button>
 
           <RxHamburgerMenu
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden text-white text-3xl hover:cursor-pointer hover:opacity-70 transition"
+            className="lg:hidden text-white text-2xl sm:text-3xl hover:cursor-pointer hover:opacity-70 transition"
           />
         </div>
       </nav>
@@ -389,43 +392,27 @@ const Banner = () => {
       <div className="z-10 text-white mt-20 flex items-center justify-between container mx-auto">
         <div>
           <div className="inline-block bg-white/10 rounded-full px-6 py-2 border border-white/20 mb-3">
-            <p className="text-lg font-medium font-karla">
+            <p className="text-base sm:text-lg font-medium font-karla">
               Welcome to Amol Travel
             </p>
           </div>
-          <p className="text-base md:text-3xl font-semibold tracking-wide my-2 font-messiri">
+          <p className="text-sm sm:text-base md:text-3xl font-semibold tracking-wide my-2 font-messiri">
             TRAVEL EXPERTS AND TOUR INC
           </p>
-          <h1 className="text-3xl md:text-[70px] font-semibold leading-tight font-messiri">
+          <h1 className="text-2xl sm:text-3xl md:text-[70px] font-semibold leading-tight font-messiri">
             Let's Discover The <br /> World Together.
           </h1>
         </div>
 
         <div>
-          <img src={StampImg} alt="stamp image" className="w-100" />
+          <img src={StampImg} alt="stamp image" className="w-24 sm:w-100" />
         </div>
-
-        {/* <div className="flex flex-col gap-4">
-          {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
-            <a
-              key={i}
-              href="#"
-              className="w-10 h-10 flex items-center justify-center border border-white/50 rounded-full bg-white/20 hover:opacity-70 transition"
-            >
-              <Icon className="text-white" />
-            </a>
-          ))}
-        </div> */}
       </div>
 
       {/* Booking Box */}
-      <div className="z-10 my-10 bg-white/60 rounded-2xl p-8 shadow-lg text-black container mx-auto">
-        {/* <h3 className="text-[40px] font-semibold text-[#002B7F] mb-4 font-messiri">
-          Where to go?
-        </h3> */}
-
+      <div className="z-10 my-10 bg-white/60 rounded-2xl p-4 sm:p-8 shadow-lg text-black container mx-auto">
         {/* Radio buttons */}
-        <div className="flex flex-wrap items-center gap-6 mb-4 font-medium text-base">
+        <div className="flex flex-wrap items-center gap-6 mb-4 font-medium text-sm sm:text-base">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="radio"
@@ -447,7 +434,7 @@ const Banner = () => {
         </div>
 
         {/* Input Fields */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 my-8 font-roboto font-bold text-base">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 my-8 font-roboto font-bold text-sm sm:text-base">
           <AirportSelector
             name="from"
             label="From"
@@ -501,10 +488,8 @@ const Banner = () => {
           />
         </div>
 
-        {/* Remove old passenger count section as it's now integrated */}
-
         {/* Radio Buttons */}
-        <div className="flex flex-col flex-wrap justify-center gap-2 my-6 text-base">
+        <div className="flex flex-col flex-wrap justify-center gap-2 my-6 text-sm sm:text-base">
           <div className="font-bold">Select A Fare Type:</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-medium">
             <label className="flex items-center gap-2 cursor-pointer">
@@ -550,11 +535,11 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center text-xs md:text-base font-normal font-roboto">
+        <div className="flex items-center justify-center text-xs sm:text-base font-normal font-roboto">
           <button
             onClick={handleSearch}
             disabled={isLoading}
-            className="bg-[#002B7F] text-white px-[50px] md:px-[71px] py-[14px] md:py-[22px] rounded-[50px] hover:opacity-90 hover:cursor-pointer transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-[#002B7F] text-white px-8 sm:px-[71px] py-3 sm:py-[22px] rounded-[50px] hover:opacity-90 hover:cursor-pointer transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>
@@ -575,40 +560,42 @@ const Banner = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
-          <div className="bg-[#1a120b] text-white p-8 rounded-2xl w-[90%] max-w-md relative">
+          <div className="bg-[#1a120b] text-white p-4 sm:p-8 rounded-2xl w-[95%] sm:w-[90%] max-w-md relative">
             <button
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-white text-xl hover:text-gray-400"
+              className="absolute top-4 right-4 text-white text-lg sm:text-xl hover:text-gray-400"
             >
               ✕
             </button>
 
-            <h2 className="text-2xl font-bold text-center mb-6">Book Now</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-center mb-6">
+              Book Now
+            </h2>
 
             <form className="space-y-4">
               <input
                 type="text"
                 placeholder="Name"
-                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+                className="w-full p-2 sm:p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
               />
               <input
                 type="tel"
                 placeholder="Phone"
-                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+                className="w-full p-2 sm:p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
               />
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+                className="w-full p-2 sm:p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
               />
               <textarea
                 placeholder="Message"
-                className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none h-24"
+                className="w-full p-2 sm:p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none h-24"
               ></textarea>
 
               <button
                 type="submit"
-                className="bg-white text-black font-semibold rounded-full py-2 px-6 hover:bg-gray-200 transition block mx-auto"
+                className="bg-white text-black font-semibold rounded-full py-1.5 sm:py-2 px-4 sm:px-6 hover:bg-gray-200 transition block mx-auto"
               >
                 Submit
               </button>
@@ -618,6 +605,299 @@ const Banner = () => {
       )}
     </section>
   );
+
+  // return (
+  //   <section
+  //     className="bg-cover bg-center flex flex-col px-6"
+  //     style={{ backgroundImage: `url(${BannerImage})` }}
+  //   >
+  //     {/* Overlay */}
+  //     <div className="absolute inset-0 bg-black/40 z[1]"></div>
+
+  //     {sidebarOpen && (
+  //       <div
+  //         onClick={() => setSidebarOpen(false)}
+  //         className="fixed inset-0 bg-black/40 z-[998] transition-opacity"
+  //       ></div>
+  //     )}
+
+  //     <SidebarMenu
+  //       isOpen={sidebarOpen}
+  //       onClose={() => setSidebarOpen(false)}
+  //       links={navLinks}
+  //     />
+
+  //     <nav className="z-[1000] py-6 flex items-center justify-between container mx-auto px-4 sm:px-6">
+  //       {/* Logo */}
+  //       <div className="font-roboto text-center sm:text-left">
+  //         <h2 className="text-white font-medium tracking-wide text-xl md:text-[32px] leading-tight">
+  //           TRAVEL EXPERTS <br />
+  //           <span className="font-normal flex justify-end text-sm md:text-lg">
+  //             AND TOUR, INC.
+  //           </span>
+  //         </h2>
+  //       </div>
+
+  //       {/* Navigation Menu */}
+  //       <NavMenu
+  //         links={navLinks}
+  //         wrapperClassName={
+  //           "hidden lg:flex items-center gap-6 text-white border border-white rounded-full text-sm px-5 py-2 font-karla font-medium"
+  //         }
+  //         linkClassName={
+  //           "uppercase px-5 py-2 hover:bg-white hover:text-black rounded-full transition"
+  //         }
+  //       />
+
+  //       {/* Book Now Button + Mobile Menu Icon */}
+  //       <div className="flex items-center gap-3">
+  //         <button
+  //           onClick={handleOpenModal}
+  //           className="bg-[#082A8C] hover:bg-[#0a3ac5] text-white font-semibold px-5 py-2 rounded-full transition text-sm sm:text-base"
+  //         >
+  //           BOOK NOW
+  //         </button>
+
+  //         <RxHamburgerMenu
+  //           onClick={() => setSidebarOpen(true)}
+  //           className="lg:hidden text-white text-3xl hover:cursor-pointer hover:opacity-70 transition"
+  //         />
+  //       </div>
+  //     </nav>
+
+  //     {/* Main Content */}
+  //     <div className="z-10 text-white mt-20 flex items-center justify-between container mx-auto">
+  //       <div>
+  //         <div className="inline-block bg-white/10 rounded-full px-6 py-2 border border-white/20 mb-3">
+  //           <p className="text-lg font-medium font-karla">
+  //             Welcome to Amol Travel
+  //           </p>
+  //         </div>
+  //         <p className="text-base md:text-3xl font-semibold tracking-wide my-2 font-messiri">
+  //           TRAVEL EXPERTS AND TOUR INC
+  //         </p>
+  //         <h1 className="text-3xl md:text-[70px] font-semibold leading-tight font-messiri">
+  //           Let's Discover The <br /> World Together.
+  //         </h1>
+  //       </div>
+
+  //       <div>
+  //         <img src={StampImg} alt="stamp image" className="w-100" />
+  //       </div>
+
+  //       {/* <div className="flex flex-col gap-4">
+  //         {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
+  //           <a
+  //             key={i}
+  //             href="#"
+  //             className="w-10 h-10 flex items-center justify-center border border-white/50 rounded-full bg-white/20 hover:opacity-70 transition"
+  //           >
+  //             <Icon className="text-white" />
+  //           </a>
+  //         ))}
+  //       </div> */}
+  //     </div>
+
+  //     {/* Booking Box */}
+  //     <div className="z-10 my-10 bg-white/60 rounded-2xl p-8 shadow-lg text-black container mx-auto">
+  //       {/* <h3 className="text-[40px] font-semibold text-[#002B7F] mb-4 font-messiri">
+  //         Where to go?
+  //       </h3> */}
+
+  //       {/* Radio buttons */}
+  //       <div className="flex flex-wrap items-center gap-6 mb-4 font-medium text-base">
+  //         <label className="flex items-center gap-2 cursor-pointer">
+  //           <input
+  //             type="radio"
+  //             name="tripType"
+  //             checked={formData.tripType === "O"}
+  //             onChange={() => handleTripTypeChange("O")}
+  //           />{" "}
+  //           One Way
+  //         </label>
+  //         <label className="flex items-center gap-2 cursor-pointer">
+  //           <input
+  //             type="radio"
+  //             name="tripType"
+  //             checked={formData.tripType === "R"}
+  //             onChange={() => handleTripTypeChange("R")}
+  //           />{" "}
+  //           Round Trip
+  //         </label>
+  //       </div>
+
+  //       {/* Input Fields */}
+  //       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 my-8 font-roboto font-bold text-base">
+  //         <AirportSelector
+  //           name="from"
+  //           label="From"
+  //           value={formData.from}
+  //           onChange={handleInputChange}
+  //           placeholder="Select departure city"
+  //           error={errors.from}
+  //         />
+
+  //         <AirportSelector
+  //           name="to"
+  //           label="To"
+  //           value={formData.to}
+  //           onChange={handleInputChange}
+  //           placeholder="Select arrival city"
+  //           error={errors.to}
+  //         />
+
+  //         <DatePicker
+  //           name="departureDate"
+  //           label="Departure"
+  //           value={formData.departureDate}
+  //           onChange={handleInputChange}
+  //           minDate={new Date().toISOString().split("T")[0]}
+  //           error={errors.departureDate}
+  //           placeholder="Select departure date"
+  //         />
+
+  //         <DatePicker
+  //           name="returnDate"
+  //           label="Return"
+  //           value={formData.returnDate}
+  //           onChange={handleInputChange}
+  //           minDate={
+  //             formData.departureDate || new Date().toISOString().split("T")[0]
+  //           }
+  //           disabled={formData.tripType === "O"}
+  //           error={errors.returnDate}
+  //           placeholder="Select return date"
+  //         />
+
+  //         <PassengerSelector
+  //           adults={formData.adults}
+  //           children={formData.children}
+  //           infants={formData.infants}
+  //           cabin={formData.cabin}
+  //           onAdultsChange={handleInputChange}
+  //           onChildrenChange={handleInputChange}
+  //           onInfantsChange={handleInputChange}
+  //           onCabinChange={handleInputChange}
+  //         />
+  //       </div>
+
+  //       {/* Remove old passenger count section as it's now integrated */}
+
+  //       {/* Radio Buttons */}
+  //       <div className="flex flex-col flex-wrap justify-center gap-2 my-6 text-base">
+  //         <div className="font-bold">Select A Fare Type:</div>
+  //         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-medium">
+  //           <label className="flex items-center gap-2 cursor-pointer">
+  //             <input
+  //               type="radio"
+  //               name="fareType"
+  //               value="Regular"
+  //               checked={formData.fareType === "Regular"}
+  //               onChange={handleInputChange}
+  //             />{" "}
+  //             Regular
+  //           </label>
+  //           <label className="flex items-center gap-2 cursor-pointer">
+  //             <input
+  //               type="radio"
+  //               name="fareType"
+  //               value="Student"
+  //               checked={formData.fareType === "Student"}
+  //               onChange={handleInputChange}
+  //             />{" "}
+  //             Student
+  //           </label>
+  //           <label className="flex items-center gap-2 cursor-pointer">
+  //             <input
+  //               type="radio"
+  //               name="fareType"
+  //               value="Senior Citizen"
+  //               checked={formData.fareType === "Senior Citizen"}
+  //               onChange={handleInputChange}
+  //             />{" "}
+  //             Senior Citizen
+  //           </label>
+  //           <label className="flex items-center gap-2 cursor-pointer">
+  //             <input
+  //               type="radio"
+  //               name="fareType"
+  //               value="Armed Forces"
+  //               checked={formData.fareType === "Armed Forces"}
+  //               onChange={handleInputChange}
+  //             />{" "}
+  //             Armed Forces
+  //           </label>
+  //         </div>
+  //       </div>
+
+  //       <div className="flex items-center justify-center text-xs md:text-base font-normal font-roboto">
+  //         <button
+  //           onClick={handleSearch}
+  //           disabled={isLoading}
+  //           className="bg-[#002B7F] text-white px-[50px] md:px-[71px] py-[14px] md:py-[22px] rounded-[50px] hover:opacity-90 hover:cursor-pointer transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+  //         >
+  //           {isLoading ? (
+  //             <>
+  //               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+  //               <span>Searching...</span>
+  //             </>
+  //           ) : (
+  //             <>
+  //               <span>
+  //                 <FaPlane />
+  //               </span>
+  //               <span>Search Now</span>
+  //             </>
+  //           )}
+  //         </button>
+  //       </div>
+  //     </div>
+
+  //     {isModalOpen && (
+  //       <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  //         <div className="bg-[#1a120b] text-white p-8 rounded-2xl w-[90%] max-w-md relative">
+  //           <button
+  //             onClick={handleCloseModal}
+  //             className="absolute top-4 right-4 text-white text-xl hover:text-gray-400"
+  //           >
+  //             ✕
+  //           </button>
+
+  //           <h2 className="text-2xl font-bold text-center mb-6">Book Now</h2>
+
+  //           <form className="space-y-4">
+  //             <input
+  //               type="text"
+  //               placeholder="Name"
+  //               className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+  //             />
+  //             <input
+  //               type="tel"
+  //               placeholder="Phone"
+  //               className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+  //             />
+  //             <input
+  //               type="email"
+  //               placeholder="Email"
+  //               className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none"
+  //             />
+  //             <textarea
+  //               placeholder="Message"
+  //               className="w-full p-3 rounded-md bg-transparent border border-white/30 focus:border-white outline-none h-24"
+  //             ></textarea>
+
+  //             <button
+  //               type="submit"
+  //               className="bg-white text-black font-semibold rounded-full py-2 px-6 hover:bg-gray-200 transition block mx-auto"
+  //             >
+  //               Submit
+  //             </button>
+  //           </form>
+  //         </div>
+  //       </div>
+  //     )}
+  //   </section>
+  // );
 };
 
 export default Banner;

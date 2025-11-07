@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="w-full overflow-x-hidden">
       <div className="bg-[#002785] text-white py-2 text-sm relative z-50">
-        <div className="flex justify-between items-center container mx-auto px-4 sm:px-6 font-roboto font-bold text-xl">
+        <div className="flex flex-wrap justify-between items-center container mx-auto px-4 sm:px-6 font-roboto font-bold text-sm sm:text-xl">
           {/* Email */}
           <a
             href="mailto:info@amoltravel.com"
