@@ -41,159 +41,159 @@ const Banner = () => {
     { name: "home", link: "#" },
     {
       name: "about us",
-      link: "https://stagging-server786.com/demo-client/amoltravel/about-us/",
+      link: "https://travel-experts.stagging-server786.com/page/about-us/",
     },
     {
       name: "destination",
-      link: "https://stagging-server786.com/demo-client/amoltravel/destination/",
+      link: "https://travel-experts.stagging-server786.com/page/destination/",
       sublinks: [
         {
           name: "Africa",
-          link: "https://stagging-server786.com/demo-client/amoltravel/africa/",
+          link: "https://travel-experts.stagging-server786.com/page/africa/",
           sublinks: [
             {
               name: "benin",
-              link: "https://stagging-server786.com/demo-client/amoltravel/benin/",
+              link: "https://travel-experts.stagging-server786.com/page/benin/",
             },
             {
               name: "ghana",
-              link: "https://stagging-server786.com/demo-client/amoltravel/ghana/",
+              link: "https://travel-experts.stagging-server786.com/page/ghana/",
             },
             {
               name: "lesotho",
-              link: "https://stagging-server786.com/demo-client/amoltravel/lesotho/",
+              link: "https://travel-experts.stagging-server786.com/page/lesotho/",
             },
             {
               name: "morocco",
-              link: "https://stagging-server786.com/demo-client/amoltravel/morocco/",
+              link: "https://travel-experts.stagging-server786.com/page/morocco/",
             },
             {
               name: "togo",
-              link: "https://stagging-server786.com/demo-client/amoltravel/togo/",
+              link: "https://travel-experts.stagging-server786.com/page/togo/",
             },
           ],
         },
         {
           name: "Americas",
-          link: "https://stagging-server786.com/demo-client/amoltravel/americas/",
+          link: "https://travel-experts.stagging-server786.com/page/americas/",
           sublinks: [
             {
               name: "guatimala",
-              link: "https://stagging-server786.com/demo-client/amoltravel/guatemala/",
+              link: "https://travel-experts.stagging-server786.com/page/guatemala/",
             },
           ],
         },
         {
           name: "South Asia",
-          link: "https://stagging-server786.com/demo-client/amoltravel/south-asia/",
+          link: "https://travel-experts.stagging-server786.com/page/south-asia/",
           sublinks: [
             {
               name: "afghanistan",
-              link: "https://stagging-server786.com/demo-client/amoltravel/afghanistan/",
+              link: "https://travel-experts.stagging-server786.com/page/afghanistan/",
             },
             {
               name: "bangladesh",
-              link: "https://stagging-server786.com/demo-client/amoltravel/bangladesh/",
+              link: "https://travel-experts.stagging-server786.com/page/bangladesh/",
             },
             {
               name: "india",
-              link: "https://stagging-server786.com/demo-client/amoltravel/india/",
+              link: "https://travel-experts.stagging-server786.com/page/india/",
             },
             {
               name: "nepal",
-              link: "https://stagging-server786.com/demo-client/amoltravel/nepal/",
+              link: "https://travel-experts.stagging-server786.com/page/nepal/",
             },
             {
               name: "pakistan",
-              link: "https://stagging-server786.com/demo-client/amoltravel/pakistan/",
+              link: "https://travel-experts.stagging-server786.com/page/pakistan/",
             },
             {
               name: "sri lanka",
-              link: "https://stagging-server786.com/demo-client/amoltravel/srilanka/",
+              link: "https://travel-experts.stagging-server786.com/page/srilanka/",
             },
           ],
         },
         {
           name: "South East Asia",
-          link: "https://stagging-server786.com/demo-client/amoltravel/south-east-asia/",
+          link: "https://travel-experts.stagging-server786.com/page/south-east-asia/",
           sublinks: [
             {
               name: "cambodia",
-              link: "https://stagging-server786.com/demo-client/amoltravel/cambodia/",
+              link: "https://travel-experts.stagging-server786.com/page/cambodia/",
             },
             {
               name: "indonesia",
-              link: "https://stagging-server786.com/demo-client/amoltravel/indonesia/",
+              link: "https://travel-experts.stagging-server786.com/page/indonesia/",
             },
             {
               name: "myanmar",
-              link: "https://stagging-server786.com/demo-client/amoltravel/myanmar/",
+              link: "https://travel-experts.stagging-server786.com/page/myanmar/",
             },
             {
               name: "vietnam",
-              link: "https://stagging-server786.com/demo-client/amoltravel/vietnam/",
+              link: "https://travel-experts.stagging-server786.com/page/vietnam/",
             },
           ],
         },
         {
           name: "Europe",
-          link: "https://stagging-server786.com/demo-client/amoltravel/europe/",
+          link: "https://travel-experts.stagging-server786.com/page/europe/",
           sublinks: [
             {
               name: "albania",
-              link: "https://stagging-server786.com/demo-client/amoltravel/albania/",
+              link: "https://travel-experts.stagging-server786.com/page/albania/",
             },
             {
               name: "belgium",
-              link: "https://stagging-server786.com/demo-client/amoltravel/belgium/",
+              link: "https://travel-experts.stagging-server786.com/page/belgium/",
             },
             {
               name: "france",
-              link: "https://stagging-server786.com/demo-client/amoltravel/france/",
+              link: "https://travel-experts.stagging-server786.com/page/france/",
             },
             {
               name: "czech republic",
-              link: "https://stagging-server786.com/demo-client/amoltravel/czech-republic/",
+              link: "https://travel-experts.stagging-server786.com/page/czech-republic/",
             },
             {
               name: "netherlands",
-              link: "https://stagging-server786.com/demo-client/amoltravel/netherlands/",
+              link: "https://travel-experts.stagging-server786.com/page/netherlands/",
             },
             {
               name: "poland",
-              link: "https://stagging-server786.com/demo-client/amoltravel/poland/",
+              link: "https://travel-experts.stagging-server786.com/page/poland/",
             },
           ],
         },
         {
           name: "Middle East",
-          link: "https://stagging-server786.com/demo-client/amoltravel/middle-east/",
+          link: "https://travel-experts.stagging-server786.com/page/middle-east/",
           sublinks: [
             {
               name: "iraq",
-              link: "https://stagging-server786.com/demo-client/amoltravel/iraq/",
+              link: "https://travel-experts.stagging-server786.com/page/iraq/",
             },
             {
               name: "qatar",
-              link: "https://stagging-server786.com/demo-client/amoltravel/qatar/",
+              link: "https://travel-experts.stagging-server786.com/page/qatar/",
             },
             {
               name: "uae",
-              link: "https://stagging-server786.com/demo-client/amoltravel/uae/",
+              link: "https://travel-experts.stagging-server786.com/page/uae/",
             },
           ],
         },
         {
           name: "Oceania",
-          link: "https://stagging-server786.com/demo-client/amoltravel/oceania/",
+          link: "https://travel-experts.stagging-server786.com/page/oceania/",
           sublinks: [
             {
               name: "fiji",
-              link: "https://stagging-server786.com/demo-client/amoltravel/fiji/",
+              link: "https://travel-experts.stagging-server786.com/page/fiji/",
             },
             {
               name: "tahiji",
-              link: "https://stagging-server786.com/demo-client/amoltravel/tahiti/",
+              link: "https://travel-experts.stagging-server786.com/page/tahiti/",
             },
           ],
         },
@@ -201,7 +201,7 @@ const Banner = () => {
     },
     {
       name: "contact us",
-      link: "https://stagging-server786.com/demo-client/amoltravel/contact-us/",
+      link: "https://travel-experts.stagging-server786.com/page/contact-us/",
     },
   ];
 
