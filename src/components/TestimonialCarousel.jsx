@@ -37,7 +37,7 @@ const TestimonialsCarousel = ({ testimonials }) => {
                   />
                   <div>
                     <h4 className="font-semibold text-white">{t.name}</h4>
-                    <p className="text-xs text-gray-400">{t.designation}</p>
+                    <p className="text-xs text-gray-400">{t.state}</p>
                   </div>
                 </div>
               </div>

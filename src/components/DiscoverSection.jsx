@@ -24,43 +24,43 @@ const DiscoverSection = () => {
   // const testimonials = [
   //   {
   //     name: "Louna Daniel",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
   //     image: LounaImg,
   //   },
   //   {
   //     name: "Joe Marshall",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
   //     image: JoeImg,
   //   },
   //   {
   //     name: "Luna Muller",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
   //     image: LunaImg,
   //   },
   //   {
   //     name: "Roy Franklin",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
   //     image: RoyImg,
   //   },
   //   {
   //     name: "Joe Marshall",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
   //     image: JoeImg,
   //   },
   //   {
   //     name: "Luna Muller",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
   //     image: LunaImg,
   //   },
   //   {
   //     name: "Roy Franklin",
-  //     designation: "Designation",
+  //     state: "state",
   //     text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
   //     image: RoyImg,
   //   },
@@ -69,43 +69,43 @@ const DiscoverSection = () => {
   const testimonials = [
     {
       name: "Aarav Mehta",
-      designation: "Marketing Manager",
+      state: "California, USA",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LounaImg,
     },
     {
       name: "Priya Sharma",
-      designation: "Software Engineer",
+      state: "New York, USA",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: JoeImg,
     },
     {
       name: "Rohan Patel",
-      designation: "Product Designer",
+      state: "Texas, USA",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LunaImg,
     },
     {
       name: "Neha Verma",
-      designation: "Project Coordinator",
+      state: "Florida, USA",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: RoyImg,
     },
     {
       name: "Vikram Iyer",
-      designation: "UI/UX Specialist",
+      state: "Illinois, USA",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: JoeImg,
     },
     {
       name: "Ananya Singh",
-      designation: "Customer Success Manager",
+      state: "Washington, USA",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
       image: LunaImg,
     },
     {
       name: "Raj Malhotra",
-      designation: "Business Analyst",
+      state: "Ohio, USA",
       text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.",
       image: RoyImg,
     },
@@ -125,24 +125,23 @@ export default DiscoverSection;
   /* Top Section */
 }
 
-// <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center">
-//         {/* Left Side Text */}
-//         <div>
-//           <h2 className="text-3xl xl:text-5xl font-messiri font-semibold leading-tight">
-//             Discover A Mesmerizing <br /> Nature Landscape & <br /> Stunning
-//             Culture
-//           </h2>
-//         </div>
+// {/* <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center">
+//   {/* Left Side Text */}
+//   <div>
+//     <h2 className="text-3xl xl:text-5xl font-messiri font-semibold leading-tight">
+//       Discover A Mesmerizing <br /> Nature Landscape & <br /> Stunning Culture
+//     </h2>
+//   </div>
 
-//         {/* Right Side Description */}
-//         <div className="space-y-6">
-//           {/* <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
+//   {/* Right Side Description */}
+//   <div className="space-y-6">
+//     {/* <p className="text-gray-300 text-xs xl:text-base font-karla leading-relaxed">
 //             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
 //             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
 //             penatibus et magnis dis parturient montes.
 //           </p> */}
-//           <button className="bg-white underline text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
-//             LEARN MORE
-//           </button>
-//         </div>
-//       </div>
+//     <button className="bg-white underline text-xs xl:text-base text-black px-6 py-3 rounded-full font-karla font-medium hover:bg-gray-100 transition">
+//       LEARN MORE
+//     </button>
+//   </div>
+// </div>; */}

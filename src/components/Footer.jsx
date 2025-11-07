@@ -71,7 +71,7 @@ const Footer = () => {
             AND TOUR, INC.
           </p>
           <p className="text-xs sm:text-base font-normal text-white/60 leading-relaxed font-Roboto">
-            8327 NE 187TH WAY, KENMORE WA. 98028
+            US AND INDIA
           </p>
 
           {/* Social Icons */}
