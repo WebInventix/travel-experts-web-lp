@@ -6,15 +6,15 @@ const DealsSlider = () => {
       <div className="flex animate-scroll">
         <span className="flex-shrink-0 text-white text-xl md:text-2xl font-bold uppercase tracking-wide px-12">
           WE ARE ONE OF THE BEST. LOWEST PRICE GUARANTEED. BEST DEALS ON COACH
-          AND BUS
+          AND BUSINESS
         </span>
         <span className="flex-shrink-0 text-white text-xl md:text-2xl font-bold uppercase tracking-wide px-12">
           WE ARE ONE OF THE BEST. LOWEST PRICE GUARANTEED. BEST DEALS ON COACH
-          AND BUS
+          AND BUSINESS
         </span>
         <span className="flex-shrink-0 text-white text-xl md:text-2xl font-bold uppercase tracking-wide px-12">
           WE ARE ONE OF THE BEST. LOWEST PRICE GUARANTEED. BEST DEALS ON COACH
-          AND BUS
+          AND BUSINESS
         </span>
       </div>
 

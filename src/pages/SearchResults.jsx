@@ -15,12 +15,24 @@ const SearchResults = () => {
   const [sortBy, setSortBy] = useState('price'); // price, duration, departure
   const [filterStops, setFilterStops] = useState('all'); // all, nonstop, onestop
 
+
+  
   // Get airport details for display
   const departureAirport = searchParams ? getAirportByCode(searchParams.Departure) : null;
   const arrivalAirport = searchParams ? getAirportByCode(searchParams.Arrival) : null;
 
   // Extract flights from the API response
   const flights = results?.Journeys?.[0]?.Flights || [];
+
+  // Calculate B2C Price
+  const calculateB2CPrice = (flight) => {
+    const { TotalFare, AdditionalFare } = flight;
+    const serviceFee = AdditionalFare?.serviceFee?.ADTServiceFee || 0;
+    const gst = AdditionalFare?.serviceFee?.GST || 0;
+    const markup = AdditionalFare?.markup?.ADTMarkup || 0;
+    console.log('Calculating B2C Price:', TotalFare, serviceFee, gst, markup);
+    return TotalFare + serviceFee + gst + markup;
+  };
 
   if (!location.state) {
     return (
@@ -51,7 +63,7 @@ const SearchResults = () => {
   // Sort flights
   const sortedFlights = [...filteredFlights].sort((a, b) => {
     if (sortBy === 'price') {
-      return (a.TotalFare || 0) - (b.TotalFare || 0);
+      return calculateB2CPrice(a) - calculateB2CPrice(b);
     } else if (sortBy === 'duration') {
       const getDuration = (flight) => {
         const time = flight.OriginDestination?.TotalTime || '00:00';

@@ -50,7 +50,7 @@ const PassengerSelector = ({
           <p className="text-xs text-gray-500">{subtitle}</p>
         </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={() => onChange(Math.max(min, value - 1))}
@@ -112,7 +112,7 @@ const PassengerSelector = ({
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute z-50 w-full sm:w-96 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl">
+        <div className="absolute z-50 w-full sm:w-96 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl !w-full">
           {/* Passengers Section */}
           <div className="p-4">
             <h3 className="font-bold text-gray-800 mb-3">Passengers</h3>
