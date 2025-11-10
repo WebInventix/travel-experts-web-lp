@@ -79,7 +79,7 @@ const AdventureSection = () => {
           style={{ backgroundImage: `url(${AdvBgImg})` }}
         >
           {/* 🎥 Video Thumbnails */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {videos.map((video, i) => (
               <button
                 key={i}
@@ -100,7 +100,7 @@ const AdventureSection = () => {
                 </div>
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* 🎬 Inline Popup (Just iframe) */}

@@ -8,19 +8,49 @@ const Footer = () => {
 
   const pagesLinks = [
     { name: "home", link: "#" },
-    { name: "about us", link: "https://stagging-server786.com/demo-client/amoltravel/about-us/" },
-    { name: "destination", link: "https://stagging-server786.com/demo-client/amoltravel/destination/" },
-    { name: "contact us", link: "https://stagging-server786.com/demo-client/amoltravel/contact-us/" },
+    {
+      name: "about us",
+      link: "https://stagging-server786.com/demo-client/amoltravel/about-us/",
+    },
+    {
+      name: "destination",
+      link: "https://stagging-server786.com/demo-client/amoltravel/destination/",
+    },
+    {
+      name: "contact us",
+      link: "https://stagging-server786.com/demo-client/amoltravel/contact-us/",
+    },
   ];
 
   const destinationLinks = [
-    { name: "africa", link: "https://stagging-server786.com/demo-client/amoltravel/africa/" },
-    { name: "america", link: "https://stagging-server786.com/demo-client/amoltravel/americas/" },
-    { name: "south asia", link: "https://stagging-server786.com/demo-client/amoltravel/south-asia/" },
-    { name: "south east asia", link: "https://stagging-server786.com/demo-client/amoltravel/south-east-asia/" },
-    { name: "europe", link: "https://stagging-server786.com/demo-client/amoltravel/europe/" },
-    { name: "middle east", link: "https://stagging-server786.com/demo-client/amoltravel/middle-east/" },
-    { name: "oceania", link: "https://stagging-server786.com/demo-client/amoltravel/oceania/" },
+    {
+      name: "africa",
+      link: "https://stagging-server786.com/demo-client/amoltravel/africa/",
+    },
+    {
+      name: "america",
+      link: "https://stagging-server786.com/demo-client/amoltravel/americas/",
+    },
+    {
+      name: "south asia",
+      link: "https://stagging-server786.com/demo-client/amoltravel/south-asia/",
+    },
+    {
+      name: "south east asia",
+      link: "https://stagging-server786.com/demo-client/amoltravel/south-east-asia/",
+    },
+    {
+      name: "europe",
+      link: "https://stagging-server786.com/demo-client/amoltravel/europe/",
+    },
+    {
+      name: "middle east",
+      link: "https://stagging-server786.com/demo-client/amoltravel/middle-east/",
+    },
+    {
+      name: "oceania",
+      link: "https://stagging-server786.com/demo-client/amoltravel/oceania/",
+    },
   ];
 
   const importLinks = [
@@ -41,11 +71,11 @@ const Footer = () => {
             AND TOUR, INC.
           </p>
           <p className="text-xs sm:text-base font-normal text-white/60 leading-relaxed font-Roboto">
-            8327 NE 187TH WAY, KENMORE WA. 98028
+            US AND INDIA
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4 mt-5">
+          {/* <div className="flex items-center gap-4 mt-5">
             <a
               href="#"
               className="w-8 h-8 flex items-center justify-center bg-transparent border border-white/30 rounded-full hover:bg-white hover:text-black transition"
@@ -70,7 +100,7 @@ const Footer = () => {
             >
               <FaYoutube />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Page Links */}
