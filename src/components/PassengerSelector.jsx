@@ -44,7 +44,7 @@ const PassengerSelector = ({
 
   // Passenger counter component
   const PassengerCounter = ({ icon: Icon, label, subtitle, value, onChange, min = 0, max = 9 }) => (
-    <div className="flex items-center justify-between py-3 border-b border-gray-200 last:border-b-0 min-w-[220px]">
+    <div className="flex items-center  justify-between py-3 border-b border-gray-200 last:border-b-0 min-w-60">
       <div className="flex items-center gap-3 ">
         <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
           <Icon className="text-[#002B7F]" />
@@ -114,7 +114,7 @@ const PassengerSelector = ({
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute z-50 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl w-full sm:w-[320px] md:w-[400px] lg:w-[480px] xl:w-[600px] max-w-full overflow-x-auto overflow-y-auto max-h-[300px] top-full left-0">
+        <div className="absolute z-50 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl min-w-full max-w-full overflow-x-auto overflow-y-auto max-h-[300px] top-full left-0">
           {/* Passengers Section */}
           <div className="p-4">
             <h3 className="font-bold text-gray-800 mb-3">Passengers</h3>
