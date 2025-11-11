@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaUser, FaChild, FaBaby, FaPlus, FaMinus } from 'react-icons/fa';
 
-const PassengerSelector = ({ 
+const PassengerSelector = ({
   adults = 1,
   children = 0,
   infants = 0,
@@ -30,23 +30,27 @@ const PassengerSelector = ({
 
   // Get cabin name
   const getCabinName = (code) => {
-    switch(code) {
-      case 'Y': return 'Economy';
-      case 'C': return 'Business';
-      case 'F': return 'First Class';
-      default: return 'Economy';
+    switch (code) {
+      case 'Y':
+        return 'Economy';
+      case 'C':
+        return 'Business';
+      case 'F':
+        return 'First Class';
+      default:
+        return 'Economy';
     }
   };
 
   // Passenger counter component
   const PassengerCounter = ({ icon: Icon, label, subtitle, value, onChange, min = 0, max = 9 }) => (
-    <div className="flex items-center justify-between py-3 border-b border-gray-200 last:border-b-0">
-      <div className="flex items-center gap-3">
+    <div className="flex items-center justify-between py-3 border-b border-gray-200 last:border-b-0 min-w-[220px]">
+      <div className="flex items-center gap-3 ">
         <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
           <Icon className="text-[#002B7F]" />
         </div>
-        <div>
-          <p className="font-semibold text-gray-800">{label}</p>
+        <div >
+          <p className="font-semibold text-gray-800 ">{label}</p>
           <p className="text-xs text-gray-500">{subtitle}</p>
         </div>
       </div>
@@ -56,7 +60,7 @@ const PassengerSelector = ({
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
           className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition ${
-            value <= min 
+            value <= min
               ? 'border-gray-300 text-gray-300 cursor-not-allowed'
               : 'border-[#002B7F] text-[#002B7F] hover:bg-[#002B7F] hover:text-white'
           }`}
@@ -69,7 +73,7 @@ const PassengerSelector = ({
           onClick={() => onChange(Math.min(max, value + 1))}
           disabled={value >= max}
           className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition ${
-            value >= max 
+            value >= max
               ? 'border-gray-300 text-gray-300 cursor-not-allowed'
               : 'border-[#002B7F] text-[#002B7F] hover:bg-[#002B7F] hover:text-white'
           }`}
@@ -82,19 +86,17 @@ const PassengerSelector = ({
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <label className="block mb-2 font-bold text-base uppercase">
-        Traveller & Class
-      </label>
+      <label className="block mb-2 font-bold text-base uppercase">Traveller & Class</label>
 
       {/* Display Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 border border-white rounded-md bg-white cursor-pointer hover:border-[#002B7F] transition-colors duration-200 flex items-center justify-between"
+        className="p-2 border border-white rounded-md bg-white cursor-pointer hover:border-[#002B7F] transition-colors duration-200 flex items-center justify-between w-full sm:w-auto"
       >
         <div className="flex items-center gap-2">
           <FaUser className="text-[#002B7F]" />
           <div className="flex flex-col">
-            <span className="font-semibold text-sm text-gray-800">
+            <span className="font-semibold text-xs sm:text-sm text-gray-800">
               {totalPassengers} Passenger{totalPassengers !== 1 ? 's' : ''}
             </span>
             <span className="text-xs text-gray-500">{getCabinName(cabin)}</span>
@@ -112,11 +114,11 @@ const PassengerSelector = ({
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute z-50 w-full sm:w-96 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl !w-full">
+        <div className="absolute z-50 mt-1 bg-white border border-gray-300 rounded-lg shadow-2xl w-full sm:w-[320px] md:w-[400px] lg:w-[480px] xl:w-[600px] max-w-full overflow-x-auto overflow-y-auto max-h-[300px] top-full left-0">
           {/* Passengers Section */}
           <div className="p-4">
             <h3 className="font-bold text-gray-800 mb-3">Passengers</h3>
-            
+
             <PassengerCounter
               icon={FaUser}
               label="Adults"
